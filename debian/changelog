@@ -1,0 +1,100 @@
+ros-melodic-dbw-mkz-joystick-demo (1.0.13-0bionic) bionic; urgency=high
+
+  * Warn and suggest fix for incorrect Logitech gamepad X/D switch configuration
+  * Removed joystick_demo namespace
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 06 Jun 2018 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.12-0bionic) bionic; urgency=high
+
+  * Added argument for joystick device path
+  * Added roslaunch tests
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 30 Jan 2018 05:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.11-0bionic) bionic; urgency=high
+
+  * Added missing dependencies
+  * Handle joystick unplug and re-plugin events
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 19 Oct 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.10-0bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 03 Oct 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.9-0bionic) bionic; urgency=high
+
+  * Changed joystick demo enable buttons default to true
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 19 Sep 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.8-0bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 07 Sep 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.7-0bionic) bionic; urgency=high
+
+  * Added steering wheel velocity (svel) parameter
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 21 Aug 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.6-0bionic) bionic; urgency=high
+
+  * Check for expected joystick button and axis count
+  * Additional dependencies
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 21 Jun 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.5-0bionic) bionic; urgency=high
+
+  * Updated package.xml format to version 2
+  * Add missing msg dependencies
+  * Joystick demo cleanup
+  * Unique target names
+  * Contributors: Kevin Hallenbeck, P. J. Reed
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 25 Apr 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.4-0bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 06 Dec 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.3-0bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 17 Nov 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.2-0bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 07 Nov 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.1-0bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 10 Oct 2016 04:00:00 -0000
+
+ros-melodic-dbw-mkz-joystick-demo (1.0.0-0bionic) bionic; urgency=high
+
+  * Initial release
+  * Contributors: Kevin Hallenbeck, Micho Radovnikovich
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 28 Sep 2016 04:00:00 -0000
+
+
