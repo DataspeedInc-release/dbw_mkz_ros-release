@@ -1,0 +1,89 @@
+ros-melodic-dbw-mkz (1.0.13-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 06 Jun 2018 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.12-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 30 Jan 2018 05:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.11-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 19 Oct 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.10-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 03 Oct 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.9-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 19 Sep 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.8-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 07 Sep 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.7-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 21 Aug 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.6-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 21 Jun 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.5-0artful) artful; urgency=high
+
+  * Updated package.xml format to version 2
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 25 Apr 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.4-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 06 Dec 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.3-0artful) artful; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 17 Nov 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.2-0artful) artful; urgency=high
+
+  * Fixed joystick_demo.desktop to correctly execute at startup
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 07 Nov 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.1-0artful) artful; urgency=high
+
+  * Added support for apt-get binary packages
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 10 Oct 2016 04:00:00 -0000
+
+ros-melodic-dbw-mkz (1.0.0-0artful) artful; urgency=high
+
+  * Initial release
+  * Contributors: Kevin Hallenbeck, Micho Radovnikovich
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 28 Sep 2016 04:00:00 -0000
+
+
