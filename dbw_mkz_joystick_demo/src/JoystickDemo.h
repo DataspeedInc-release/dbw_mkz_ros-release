@@ -66,13 +66,20 @@ private:
 
   // Topics
   ros::Subscriber sub_joy_;
-  ros::Publisher pub_throttle_;
   ros::Publisher pub_brake_;
+  ros::Publisher pub_throttle_;
   ros::Publisher pub_steering_;
   ros::Publisher pub_gear_;
   ros::Publisher pub_turn_signal_;
   ros::Publisher pub_enable_;
   ros::Publisher pub_disable_;
+
+  // Parameters
+  bool brake_; // Send brake commands
+  bool throttle_; // Send throttle commands
+  bool steer_; // Send steering commands
+  bool shift_; // Send shift commands
+  bool signal_; // Send turn signal commands
 
   // Parameters
   bool ignore_; // Ignore driver overrides
