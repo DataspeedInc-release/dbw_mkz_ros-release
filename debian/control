@@ -1,0 +1,13 @@
+Source: ros-indigo-dbw-mkz-can
+Section: misc
+Priority: extra
+Maintainer: Kevin Hallenbeck <khallenbeck@dataspeedinc.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-can-msgs, ros-indigo-catkin, ros-indigo-dataspeed-can-msg-filters, ros-indigo-dbw-mkz-msgs, ros-indigo-geometry-msgs, ros-indigo-nodelet, ros-indigo-roscpp, ros-indigo-roslaunch, ros-indigo-rospy, ros-indigo-sensor-msgs, ros-indigo-std-msgs
+Homepage: http://dataspeedinc.com
+Standards-Version: 3.9.2
+
+Package: ros-indigo-dbw-mkz-can
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-can-msgs, ros-indigo-dataspeed-can-usb, ros-indigo-dbw-mkz-description, ros-indigo-dbw-mkz-msgs, ros-indigo-dbw-mkz-twist-controller, ros-indigo-geometry-msgs, ros-indigo-nodelet, ros-indigo-roscpp, ros-indigo-roslaunch, ros-indigo-rospy, ros-indigo-sensor-msgs, ros-indigo-std-msgs
+Description: Drive-by-wire interface to the Dataspeed Inc.
+ Lincoln MKZ DBW kit
