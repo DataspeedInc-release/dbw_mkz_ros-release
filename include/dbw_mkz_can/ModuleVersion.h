@@ -52,12 +52,13 @@ class ModuleVersion {
 public:
   ModuleVersion() : full(0) {};
   ModuleVersion(uint16_t major, uint16_t minor, uint16_t build) : major_(major), minor_(minor), build_(build), extra_(0) {};
-  bool operator<(const ModuleVersion& other) const { return this->full < other.full; }
-  bool operator>(const ModuleVersion& other) const { return this->full > other.full; }
+  bool operator< (const ModuleVersion& other) const { return this->full < other.full; }
+  bool operator> (const ModuleVersion& other) const { return this->full > other.full; }
   bool operator<=(const ModuleVersion& other) const { return this->full <= other.full; }
   bool operator>=(const ModuleVersion& other) const { return this->full >= other.full; }
   bool operator==(const ModuleVersion& other) const { return this->full == other.full; }
   bool operator!=(const ModuleVersion& other) const { return this->full != other.full; }
+  bool valid() const { return full != 0; }
   uint16_t major() const { return major_; }
   uint16_t minor() const { return minor_; }
   uint16_t build() const { return build_; }
@@ -76,7 +77,7 @@ private:
   };
 };
 
-} //namespace dbw_mkz_can
+} // namespace dbw_mkz_can
 
 #endif // _DBW_MKZ_CAN_MODULE_VERSION_H
 
