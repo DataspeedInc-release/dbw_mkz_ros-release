@@ -13,8 +13,8 @@
 # One Line ROS and SDK Install (binary)
 
 * Use this option to install ROS and this SDK on a clean Ubuntu install.
-* This should ONLY be run on a fresh install of [Ubuntu 14.04.5 Desktop](http://releases.ubuntu.com/14.04/ubuntu-14.04.5-desktop-amd64.iso) or [Ubuntu 16.04.x Desktop](http://releases.ubuntu.com/16.04/ubuntu-16.04.4-desktop-amd64.iso).
-* Paste the following into a terminal to install ROS and this SDK. This script will change some operating system parameters, install ROS [Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu) or [Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu), install the SDK, and configure the joystick demo with rviz to run at startup.
+* This should ONLY be run on a fresh install of Ubuntu Desktop [18.04.x](http://releases.ubuntu.com/18.04/ubuntu-18.04-desktop-amd64.iso)/[16.04.x](http://releases.ubuntu.com/16.04/ubuntu-16.04.4-desktop-amd64.iso)/[14.04.5](http://releases.ubuntu.com/14.04/ubuntu-14.04.5-desktop-amd64.iso).
+* Paste the following into a terminal to install ROS and this SDK. This script will change some operating system parameters, install ROS [Melodic](http://wiki.ros.org/melodic/Installation/Ubuntu)/[Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu)/[Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu), install the SDK, and configure the joystick demo with rviz to run at startup.
 * ```bash <(wget -q -O - https://bitbucket.org/DataspeedInc/dbw_mkz_ros/raw/default/dbw_mkz/scripts/ros_install.bash)```
 
 # Manual install/update (source)
