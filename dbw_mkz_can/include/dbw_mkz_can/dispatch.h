@@ -42,15 +42,18 @@ namespace dbw_mkz_can
 typedef struct {
   uint16_t PCMD;
   uint8_t BCMD :1;
-  uint8_t :7;
+  uint8_t ABOO :1;
+  uint8_t :2;
+  uint8_t CMD_TYPE :4;
   uint8_t EN :1;
   uint8_t CLEAR :1;
   uint8_t IGNORE :1;
-  uint8_t :5;
+  uint8_t :4;
+  uint8_t RES1 :1;
   uint8_t :8;
   uint8_t :8;
   uint8_t :8;
-  uint8_t count;
+  uint8_t COUNT;
 } MsgBrakeCmd;
 
 typedef struct {
@@ -74,15 +77,17 @@ typedef struct {
 
 typedef struct {
   uint16_t PCMD;
-  uint8_t :8;
+  uint8_t :4;
+  uint8_t CMD_TYPE :4;
   uint8_t EN :1;
   uint8_t CLEAR :1;
   uint8_t IGNORE :1;
-  uint8_t :5;
+  uint8_t :4;
+  uint8_t RES1 :1;
   uint8_t :8;
   uint8_t :8;
   uint8_t :8;
-  uint8_t count;
+  uint8_t COUNT;
 } MsgThrottleCmd;
 
 typedef struct {
@@ -113,7 +118,7 @@ typedef struct {
   uint8_t :8;
   uint8_t :8;
   uint8_t :8;
-  uint8_t count;
+  uint8_t COUNT;
 } MsgSteeringCmd;
 
 typedef struct {
@@ -185,6 +190,9 @@ typedef struct {
   uint8_t btn_ld_left :1;
   uint8_t btn_ld_right :1;
   uint8_t btn_cc_res_dec :1;
+  uint8_t :8;
+  uint8_t :8;
+  uint8_t outside_air_temp :8;
 } MsgMiscReport;
 
 typedef struct {
@@ -390,15 +398,9 @@ typedef struct {
   };
 } MsgLicense;
 
-enum {
-  VERSION_BPEC  = 1, // Brake
-  VERSION_TPEC  = 2, // Throttle
-  VERSION_EPAS  = 3, // Steering
-  VERSION_SHIFT = 4, // Shifting
-};
 typedef struct {
   uint8_t module;
-  uint8_t :8;
+  uint8_t platform;
   uint16_t major;
   uint16_t minor;
   uint16_t build;
@@ -415,7 +417,7 @@ static void dispatchAssertSizes() {
   BUILD_ASSERT(1 == sizeof(MsgGearCmd));
   BUILD_ASSERT(2 == sizeof(MsgGearReport));
   BUILD_ASSERT(1 == sizeof(MsgTurnSignalCmd));
-  BUILD_ASSERT(5 == sizeof(MsgMiscReport));
+  BUILD_ASSERT(8 == sizeof(MsgMiscReport));
   BUILD_ASSERT(8 == sizeof(MsgReportWheelSpeed));
   BUILD_ASSERT(6 == sizeof(MsgReportAccel));
   BUILD_ASSERT(4 == sizeof(MsgReportGyro));
@@ -460,7 +462,7 @@ enum {
   ID_VERSION                = 0x07F,
 };
 
-} //namespace dbw_mkz_can
+} // namespace dbw_mkz_can
 
 #endif // _DBW_MKZ_CAN_DISPATCH_H
 

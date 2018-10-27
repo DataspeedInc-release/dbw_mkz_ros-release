@@ -2,6 +2,49 @@
 Changelog for package dbw_mkz_can
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.17 (2018-10-27)
+-------------------
+* Updated firmware versions
+* Updated list of platforms
+* Disengage on any fault for brake/throttle/steering (change AND to OR)
+* Added outside air temperature to Misc1Report
+* Latch firmware version on any change (previously only latched once)
+* Changed pedal_luts default from true to false (forward command type by default now)
+* Fixed handling of all the firmware/module requrements for brake command type CMD_TORQUE_RQ
+* Disregard overrides on unused subsystems using the TIMEOUT bit
+* Fixed typo in nodelets.xml of dbw_mkz_can
+* Finished unit tests of PlatformMap
+* Use sign of wheel speeds to set sign of vehicle speed, fixes issue #24
+* Set CXX_STANDARD to C++11 only when necessary
+* Contributors: Kevin Hallenbeck, Micho Radovnikovich
+
+1.0.16 (2018-08-29)
+-------------------
+* Force compiler to use C++11
+* Handle version message with a map/database of several platform/module combinations
+* Implemented firmware version requirements for forwarding pedal command type
+* Contributors: Kevin Hallenbeck
+
+1.0.15 (2018-08-21)
+-------------------
+* Updated firmware versions
+* Contributors: Kevin Hallenbeck
+
+1.0.14 (2018-08-20)
+-------------------
+* Updated firmware versions
+* Enabled code coverage testing when built as debug
+* Increased the steering command range to +-INT16_MAX, the specific range limit is applied by the firmware
+* Skip warning about brake and throttle commands when the reserved bit is set
+* Match CAN messages 0x060 to 0x07F even though some are unused
+* Capitalized the COUNT field to match code style
+* Added parameter for local/embedded pedal LUTs
+* Added option to forward higher level pedal commands (percent/torque) to the embedded modules
+* Added unit tests for exported header files
+* Extracted sonar color to a separate function
+* Added missing include
+* Contributors: Kevin Hallenbeck
+
 1.0.13 (2018-06-06)
 -------------------
 * Updated firmware versions
