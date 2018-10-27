@@ -134,7 +134,7 @@ static inline float throttlePedalFromPercent(float percent) {
   return 0.0;
 }
 
-} //namespace dbw_mkz_can
+} // namespace dbw_mkz_can
 
 #endif // _DBW_MKZ_CAN_PEDAL_LUT_H
 
