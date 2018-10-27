@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>dbw_mkz_joystick_demo</name>
-  <version>1.0.13</version>
+  <version>1.0.17</version>
   <description>
     Demonstration of drive-by-wire with joystick
   </description>
@@ -25,5 +25,6 @@
   <exec_depend>dbw_mkz_can</exec_depend>
 
   <test_depend>roslaunch</test_depend>
+  <test_depend>roslib</test_depend> <!-- Needed for ROS_DISTRO environment variable -->
 
 </package>

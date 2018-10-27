@@ -12,6 +12,9 @@ Wiper wiper
 # Ambient Light Sensor enumeration
 AmbientLight ambient_light
 
+# Outside air temperature
+float32 outside_temperature # Degrees Celsius
+
 # Buttons
 bool btn_cc_on        # Cruise Control On
 bool btn_cc_off       # Cruise Control Off
