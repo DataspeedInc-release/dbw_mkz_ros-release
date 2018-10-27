@@ -35,6 +35,7 @@
 #ifndef _DBW_MKZ_CAN_SONAR_LUT_H
 #define _DBW_MKZ_CAN_SONAR_LUT_H
 #include <sensor_msgs/PointCloud2.h>
+#include <dbw_mkz_msgs/SurroundReport.h>
 
 namespace dbw_mkz_can
 {
@@ -56,6 +57,15 @@ static const struct {float x; float y; float z; float a;} SONAR_TABLE[] = {
 };
 static inline float sonarMetersFromBits(uint8_t bits) {
   return bits ? ((float)bits * 0.15) + 0.15 : 0.0;
+}
+static inline uint32_t sonarColorFromRange(float range) {
+  if (range < 0.7) {
+    return 0xC0FF0000; // rgba = RED
+  } else if (range < 1.3) {
+    return 0xC0FFFF00; // rgba = YELLOW
+  } else {
+    return 0xC000FF00; // rgba = GREEN
+  }
 }
 static inline void sonarBuildPointCloud2(sensor_msgs::PointCloud2 &cloud, const dbw_mkz_msgs::SurroundReport &surround) {
   // Populate message fields
@@ -88,13 +98,7 @@ static inline void sonarBuildPointCloud2(sensor_msgs::PointCloud2 &cloud, const 
       *((float*)(ptr + 0)) = SONAR_TABLE[i].x + cosf(SONAR_TABLE[i].a) * range; // x
       *((float*)(ptr + 4)) = SONAR_TABLE[i].y + sinf(SONAR_TABLE[i].a) * range; // y
       *((float*)(ptr + 8)) = SONAR_TABLE[i].z; // z
-      if (range < 0.7) {
-        *((uint32_t*)(ptr + 12)) = 0xC0FF0000; // rgba = RED
-      } else if (range < 1.3) {
-        *((uint32_t*)(ptr + 12)) = 0xC0FFFF00; // rgba = YELLOW
-      } else {
-        *((uint32_t*)(ptr + 12)) = 0xC000FF00; // rgba = GREEN
-      }
+      *((uint32_t*)(ptr + 12)) = sonarColorFromRange(range); // rgba
       ptr += POINT_STEP;
     }
   }
@@ -117,7 +121,7 @@ static inline void sonarBuildPointCloud2(sensor_msgs::PointCloud2 &cloud, const 
   cloud.data.resize(cloud.row_step); // Shrink to actual size
 }
 
-} //namespace dbw_mkz_can
+} // namespace dbw_mkz_can
 
 #endif // _DBW_MKZ_CAN_SONAR_LUT_H
 
