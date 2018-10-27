@@ -67,8 +67,8 @@
 #include <std_msgs/Bool.h>
 #include <std_msgs/String.h>
 
-// Module Version class
-#include <dbw_mkz_can/ModuleVersion.h>
+// Platform and module version map
+#include <dbw_mkz_can/PlatformMap.h>
 
 namespace dbw_mkz_can
 {
@@ -121,9 +121,9 @@ private:
   void enableSystem();
   void disableSystem();
   void buttonCancel();
-  void overrideBrake(bool override);
-  void overrideThrottle(bool override);
-  void overrideSteering(bool override);
+  void overrideBrake(bool override, bool timeout);
+  void overrideThrottle(bool override, bool timeout);
+  void overrideSteering(bool override, bool timeout);
   void overrideGear(bool override);
   void timeoutBrake(bool timeout, bool enabled);
   void timeoutThrottle(bool timeout, bool enabled);
@@ -147,15 +147,23 @@ private:
   sensor_msgs::JointState joint_state_;
   void publishJointStates(const ros::Time &stamp, const dbw_mkz_msgs::WheelSpeedReport *wheels, const dbw_mkz_msgs::SteeringReport *steering);
 
+  // The signum function: https://stackoverflow.com/questions/1903954/
+  template <typename T> static int sgn(T val) {
+      return ((T)0 < val) - (val < (T)0);
+  }
+
+  // Sign of the wheel velocities, to be multiplied with vehicle speed
+  float speedSign() const {
+    return sgn(joint_state_.velocity[JOINT_FL]) + sgn(joint_state_.velocity[JOINT_FR]) +
+           sgn(joint_state_.velocity[JOINT_RL]) + sgn(joint_state_.velocity[JOINT_RR]) < 0 ? -1.0 : 1.0;
+  }
+
   // Licensing
   std::string vin_;
   std::string date_;
 
   // Firmware Versions
-  ModuleVersion version_brake_;
-  ModuleVersion version_throttle_;
-  ModuleVersion version_steering_;
-  ModuleVersion version_shifting_;
+  PlatformMap firmware_;
 
   // Frame ID
   std::string frame_id_;
@@ -165,6 +173,9 @@ private:
 
   // Buttons (enable/disable)
   bool buttons_;
+
+  // Pedal LUTs (local/embedded)
+  bool pedal_luts_;
 
   // Brake lights
   bool boo_status_;

@@ -2,6 +2,23 @@
 Changelog for package dbw_mkz_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.0.17 (2018-10-27)
+-------------------
+* Added outside air temperature to Misc1Report
+* Fixed copy-paste mistake in old bag migration rule
+* Contributors: Kevin Hallenbeck
+
+1.0.16 (2018-08-29)
+-------------------
+
+1.0.15 (2018-08-21)
+-------------------
+
+1.0.14 (2018-08-20)
+-------------------
+* Added brake pedal CMD_TORQUE_RQ command type for closed loop brake torque request
+* Contributors: Kevin Hallenbeck
+
 1.0.13 (2018-06-06)
 -------------------
 * Added support for the RES+ and RES- buttons

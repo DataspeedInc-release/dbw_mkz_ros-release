@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>dbw_mkz_description</name>
-  <version>1.0.13</version>
+  <version>1.0.17</version>
   <description>
     URDF and meshes describing the Lincoln MKZ.
   </description>
@@ -21,6 +21,7 @@
   <exec_depend>robot_state_publisher</exec_depend>
 
   <test_depend>roslaunch</test_depend>
+  <test_depend>roslib</test_depend> <!-- Needed for ROS_DISTRO environment variable -->
   <test_depend>rviz</test_depend> <!-- Used to satisfy the roslaunch_add_file_check() test -->
 
 </package>
