@@ -33,6 +33,8 @@ if   [ "$codename" = "trusty" ]; then
   ROS_DISTRO=indigo
 elif [ "$codename" = "xenial" ]; then
   ROS_DISTRO=kinetic
+elif [ "$codename" = "bionic" ]; then
+  ROS_DISTRO=melodic
 else
   echo "Unable to determine ROS version for OS codename '"$codename"'"
   exit 1
