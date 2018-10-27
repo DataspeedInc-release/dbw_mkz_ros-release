@@ -14,11 +14,21 @@
   </group>
 
   <!-- Joystick demo -->
+  <arg name="brake" default="true"/>
+  <arg name="throttle" default="true"/>
+  <arg name="steer" default="true"/>
+  <arg name="shift" default="true"/>
+  <arg name="signal" default="true"/>
   <arg name="ignore" default="false"/>
   <arg name="enable" default="true"/>
   <arg name="count" default="false"/>
   <arg name="svel" default="0.0"/>
   <node ns="vehicle" pkg="dbw_mkz_joystick_demo" type="joystick_demo" name="joystick_demo" output="screen" >
+    <param name="brake" value="$(arg brake)" /> <!-- Send brake commands -->
+    <param name="throttle" value="$(arg throttle)" /> <!-- Send throttle commands -->
+    <param name="steer" value="$(arg steer)" /> <!-- Send steering commands -->
+    <param name="shift" value="$(arg shift)" /> <!-- Send shift commands -->
+    <param name="signal" value="$(arg signal)" /> <!-- Send turn signal commands -->
     <param name="ignore" value="$(arg ignore)" /> <!-- Ignore driver overrides -->
     <param name="enable" value="$(arg enable)" /> <!-- Enable buttons -->
     <param name="count" value="$(arg count)" /> <!-- Watchdog counter -->
