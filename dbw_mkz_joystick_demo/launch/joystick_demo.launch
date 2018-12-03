@@ -19,6 +19,8 @@
   <arg name="steer" default="true"/>
   <arg name="shift" default="true"/>
   <arg name="signal" default="true"/>
+  <arg name="brake_gain" default="1.0"/>
+  <arg name="throttle_gain" default="1.0"/>
   <arg name="ignore" default="false"/>
   <arg name="enable" default="true"/>
   <arg name="count" default="false"/>
@@ -29,6 +31,8 @@
     <param name="steer" value="$(arg steer)" /> <!-- Send steering commands -->
     <param name="shift" value="$(arg shift)" /> <!-- Send shift commands -->
     <param name="signal" value="$(arg signal)" /> <!-- Send turn signal commands -->
+    <param name="brake_gain" value="$(arg brake_gain)" /> <!-- Adjust brake value -->
+    <param name="throttle_gain" value="$(arg throttle_gain)" /> <!-- Adjust throttle value -->
     <param name="ignore" value="$(arg ignore)" /> <!-- Ignore driver overrides -->
     <param name="enable" value="$(arg enable)" /> <!-- Enable buttons -->
     <param name="count" value="$(arg count)" /> <!-- Watchdog counter -->
@@ -39,7 +43,7 @@
   <arg name="dev" default="/dev/input/js0"/>
   <node pkg="joy" type="joy_node" name="joy_node" output="screen" >
     <param name="dev" value="$(arg dev)" />
-    <param name="deadzone" value="0.01" />
+    <param name="deadzone" value="0.0" />
     <param name="autorepeat_rate" value="50.0" />
   </node>
 
