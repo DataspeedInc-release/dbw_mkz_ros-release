@@ -2,6 +2,18 @@
 Changelog for package dbw_mkz_can
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.0 (2018-11-30)
+------------------
+* Updated firmware versions
+* Removed all BOO control options and manually implemented auto BOO control for legacy firmware (brake lights)
+* Added BTYPE (brake type) bit
+* Added CMD_DECEL brake command type (only for non-hybrid platforms)
+* Replaced dbw_mkz_twist_controller with dataspeed_ulc_can in dbw.launch
+* Added throttlePercentFromPedal lookup table function and corresponding test
+* Use the ${catkin_EXPORTED_TARGETS} macro for target dependencies
+* Added DriverAssistReport message
+* Contributors: Kevin Hallenbeck, Micho Radovnikovich
+
 1.0.17 (2018-10-27)
 -------------------
 * Updated firmware versions
