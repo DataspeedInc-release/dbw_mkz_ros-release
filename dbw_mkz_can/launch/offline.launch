@@ -5,6 +5,5 @@
   <include file="$(find dbw_mkz_can)/launch/dbw.launch" >
     <arg name="live" value="false" />
     <arg name="warn_cmds" value="false"/>
-    <arg name="twist_controller" value="false" />
   </include>
 </launch>
