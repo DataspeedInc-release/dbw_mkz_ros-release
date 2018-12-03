@@ -50,6 +50,13 @@ JoystickDemo::JoystickDemo(ros::NodeHandle &node, ros::NodeHandle &priv_nh) : co
   priv_nh.getParam("shift", shift_);
   priv_nh.getParam("signal", signal_);
 
+  brake_gain_ = 1.0;
+  throttle_gain_ = 1.0;
+  priv_nh.getParam("brake_gain", brake_gain_);
+  priv_nh.getParam("throttle_gain", throttle_gain_);
+  brake_gain_    = std::min(std::max(brake_gain_,    (float)0), (float)1);
+  throttle_gain_ = std::min(std::max(throttle_gain_, (float)0), (float)1);
+
   ignore_ = false;
   enable_ = true;
   count_ = false;
@@ -114,7 +121,7 @@ void JoystickDemo::cmdCallback(const ros::TimerEvent& event)
     msg.ignore = ignore_;
     msg.count = counter_;
     msg.pedal_cmd_type = dbw_mkz_msgs::BrakeCmd::CMD_PERCENT;
-    msg.pedal_cmd = data_.brake_joy;
+    msg.pedal_cmd = data_.brake_joy * brake_gain_;
     pub_brake_.publish(msg);
   }
 
@@ -125,7 +132,7 @@ void JoystickDemo::cmdCallback(const ros::TimerEvent& event)
     msg.ignore = ignore_;
     msg.count = counter_;
     msg.pedal_cmd_type = dbw_mkz_msgs::ThrottleCmd::CMD_PERCENT;
-    msg.pedal_cmd = data_.throttle_joy;
+    msg.pedal_cmd = data_.throttle_joy * throttle_gain_;
     pub_throttle_.publish(msg);
   }
 

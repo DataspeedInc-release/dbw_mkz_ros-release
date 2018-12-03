@@ -133,6 +133,29 @@ static inline float throttlePedalFromPercent(float percent) {
   }
   return 0.0;
 }
+static inline float throttlePercentFromPedal(float pedal) {
+  const unsigned int size = sizeof(THROTTLE_TABLE) / sizeof(THROTTLE_TABLE[0]);
+  if (pedal <= THROTTLE_TABLE[0].pedal) {
+    return THROTTLE_TABLE[0].percent;
+  } else if (pedal >= THROTTLE_TABLE[size - 1].pedal) {
+    return THROTTLE_TABLE[size - 1].percent;
+  } else {
+    for (unsigned int i = 1; i < size; i++) {
+      if (pedal < THROTTLE_TABLE[i].pedal) {
+        float start = THROTTLE_TABLE[i - 1].percent;
+        float dinput = pedal - THROTTLE_TABLE[i - 1].pedal;
+        float dpercent = THROTTLE_TABLE[i].percent - THROTTLE_TABLE[i - 1].percent;
+        float dpedal = THROTTLE_TABLE[i].pedal - THROTTLE_TABLE[i - 1].pedal;
+        if (fabsf(dpedal) > (float) 1e-6) {
+          return start + (dinput * dpercent / dpedal);
+        } else {
+          return start + (dpercent / 2);
+        }
+      }
+    }
+  }
+  return 0.0;
+}
 
 } // namespace dbw_mkz_can
 
