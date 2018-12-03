@@ -57,6 +57,7 @@
 #include <dbw_mkz_msgs/SurroundReport.h>
 #include <dbw_mkz_msgs/BrakeInfoReport.h>
 #include <dbw_mkz_msgs/ThrottleInfoReport.h>
+#include <dbw_mkz_msgs/DriverAssistReport.h>
 #include <sensor_msgs/Imu.h>
 #include <sensor_msgs/NavSatFix.h>
 #include <sensor_msgs/TimeReference.h>
@@ -177,12 +178,6 @@ private:
   // Pedal LUTs (local/embedded)
   bool pedal_luts_;
 
-  // Brake lights
-  bool boo_status_;
-  bool boo_control_;
-  double boo_thresh_lo_;
-  double boo_thresh_hi_;
-
   // Ackermann steering
   double acker_wheelbase_;
   double acker_track_;
@@ -213,6 +208,7 @@ private:
   ros::Publisher pub_sonar_cloud_;
   ros::Publisher pub_brake_info_;
   ros::Publisher pub_throttle_info_;
+  ros::Publisher pub_driver_assist_;
   ros::Publisher pub_imu_;
   ros::Publisher pub_gps_fix_;
   ros::Publisher pub_gps_vel_;
