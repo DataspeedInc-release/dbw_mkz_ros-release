@@ -41,8 +41,8 @@ namespace dbw_mkz_can
 
 typedef struct {
   uint16_t PCMD;
-  uint8_t BCMD :1;
-  uint8_t ABOO :1;
+  uint8_t BCMD :1; // Only for legacy firmware
+  uint8_t ABOO :1; // Only for legacy firmware
   uint8_t :2;
   uint8_t CMD_TYPE :4;
   uint8_t EN :1;
@@ -60,7 +60,7 @@ typedef struct {
   uint16_t PI;
   uint16_t PC;
   uint16_t PO;
-  uint8_t BO :1;
+  uint8_t BTYPE :1;
   uint8_t BC :1;
   uint8_t BI :1;
   uint8_t WDCBRK :1;
@@ -323,6 +323,21 @@ typedef struct {
   uint16_t :8;
 } MsgReportThrottleInfo;
 
+typedef struct {
+  uint8_t decel :8;
+  uint8_t decel_src :2;
+  uint8_t :1;
+  uint8_t fcw_enabled :1;
+  uint8_t fcw_active :1;
+  uint8_t aeb_enabled :1;
+  uint8_t aeb_precharge :1;
+  uint8_t aeb_braking :1;
+  uint8_t :1;
+  uint8_t acc_enabled :1;
+  uint8_t acc_braking :1;
+  uint8_t :5;
+} MsgReportDriverAssist;
+
 typedef enum {
   LIC_MUX_F0 = 0x00, // Feature 0 (Main)
   LIC_MUX_MAC   = 0x80,
@@ -430,6 +445,7 @@ static void dispatchAssertSizes() {
   BUILD_ASSERT(8 == sizeof(MsgReportSurround));
   BUILD_ASSERT(8 == sizeof(MsgReportBrakeInfo));
   BUILD_ASSERT(8 == sizeof(MsgReportThrottleInfo));
+  BUILD_ASSERT(3 == sizeof(MsgReportDriverAssist));
   BUILD_ASSERT(8 == sizeof(MsgLicense));
   BUILD_ASSERT(8 == sizeof(MsgVersion));
 }
@@ -458,6 +474,7 @@ enum {
   ID_REPORT_SURROUND        = 0x073,
   ID_REPORT_BRAKE_INFO      = 0x074,
   ID_REPORT_THROTTLE_INFO   = 0x075,
+  ID_REPORT_DRIVER_ASSIST   = 0x079,
   ID_LICENSE                = 0x07E,
   ID_VERSION                = 0x07F,
 };
