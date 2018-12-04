@@ -2,6 +2,14 @@
 Changelog for package dbw_mkz_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.0 (2018-11-30)
+------------------
+* Removed boo_cmd from BrakeCommand message
+* Fixed old bag migration rule
+* Added CMD_DECEL brake command type (only for non-hybrid platforms)
+* Added DriverAssistReport message
+* Contributors: Kevin Hallenbeck
+
 1.0.17 (2018-10-27)
 -------------------
 * Added outside air temperature to Misc1Report
