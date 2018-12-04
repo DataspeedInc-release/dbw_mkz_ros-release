@@ -41,10 +41,10 @@ int main(int argc, char **argv)
   ros::NodeHandle node;
   ros::NodeHandle priv_nh("~");
 
-  // create DbwNode class
+  // Create DbwNode class
   dbw_mkz_can::DbwNode n(node, priv_nh);
 
-  // handle callbacks until shut down
+  // Handle callbacks until shutdown
   ros::spin();
 
   return 0;
