@@ -237,7 +237,7 @@ uint8 NO_DATA=7
 		("Wiper","Wiper"),
 		("AmbientLight","AmbientLight"),]
 
-	valid = False
+	valid = True
 
 	def update(self, old_msg, new_msg):
 		self.migrate(old_msg.header, new_msg.header)

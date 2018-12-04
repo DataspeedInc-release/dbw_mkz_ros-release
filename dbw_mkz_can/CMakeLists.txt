@@ -40,7 +40,7 @@ add_library(${PROJECT_NAME}
   src/nodelet.cpp
   src/DbwNode.cpp
 )
-add_dependencies(${PROJECT_NAME} dbw_mkz_msgs_gencpp)
+add_dependencies(${PROJECT_NAME} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}
   ${catkin_LIBRARIES}
 )
@@ -48,7 +48,7 @@ target_link_libraries(${PROJECT_NAME}
 add_executable(${PROJECT_NAME}_dbw_node
   src/node.cpp
 )
-add_dependencies(${PROJECT_NAME}_dbw_node dbw_mkz_msgs_gencpp)
+add_dependencies(${PROJECT_NAME}_dbw_node ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME}_dbw_node
   ${PROJECT_NAME}
 )
