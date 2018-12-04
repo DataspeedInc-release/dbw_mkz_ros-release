@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>dbw_mkz_twist_controller</name>
-  <version>1.0.17</version>
+  <version>1.1.0</version>
   <description>
     Twist (speed and angular rate) controller for brake/throttle/steering
   </description>
@@ -23,5 +23,11 @@
   <depend>sensor_msgs</depend>
   <depend>dbw_mkz_msgs</depend>
   <depend>dynamic_reconfigure</depend>
+
+  <export>
+    <deprecated>
+      The package dbw_mkz_twist_controller has been deprecated with migration to dataspeed_ulc_can. The drive-by-wire firmware now includes a much better twist control implementation.
+    </deprecated>
+  </export>
 
 </package>
