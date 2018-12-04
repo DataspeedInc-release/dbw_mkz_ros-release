@@ -2,6 +2,11 @@
 Changelog for package dbw_mkz
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.0 (2018-11-30)
+------------------
+* Deprecated the dbw_mkz_twist_controller package and removed from the dbw_mkz metapackage
+* Contributors: Kevin Hallenbeck
+
 1.0.17 (2018-10-27)
 -------------------
 
