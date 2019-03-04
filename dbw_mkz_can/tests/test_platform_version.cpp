@@ -78,6 +78,33 @@ TEST(ModuleVersion, operators)
   EXPECT_TRUE (PlatformVersion(x,y,1,1,1) != ModuleVersion(9,9,9));
 }
 
+// Test platformToString()
+TEST(ModuleVersion, platformToString)
+{
+  EXPECT_STREQ("FORD_CD4", platformToString(P_FORD_CD4));
+  EXPECT_STREQ("FORD_P5",  platformToString(P_FORD_P5));
+  EXPECT_STREQ("FCA_RU",   platformToString(P_FCA_RU));
+  EXPECT_STREQ("FCA_WK2",  platformToString(P_FCA_WK2));
+  for (size_t i = 0x20; i <= UINT8_MAX; i++) {
+    EXPECT_STREQ("UNKNOWN", platformToString((Platform)i)) << "i = " << i;
+  }
+}
+
+// Test moduleToString()
+TEST(ModuleVersion, moduleToString)
+{
+  EXPECT_STREQ("BPEC ", moduleToString(M_BPEC));
+  EXPECT_STREQ("TPEC ", moduleToString(M_TPEC));
+  EXPECT_STREQ("STEER", moduleToString(M_STEER));
+  EXPECT_STREQ("SHIFT", moduleToString(M_SHIFT));
+  EXPECT_STREQ("ABS  ", moduleToString(M_ABS));
+  EXPECT_STREQ("BOO  ", moduleToString(M_BOO));
+  EXPECT_STREQ("UNKNOWN", moduleToString((Module)0));
+  for (size_t i = 7; i <= UINT8_MAX; i++) {
+    EXPECT_STREQ("UNKNOWN", moduleToString((Module)i)) << "i = " << i;
+  }
+}
+
 int main(int argc, char **argv)
 {
   testing::InitGoogleTest(&argc, argv);
