@@ -1,0 +1,13 @@
+Source: ros-kinetic-dbw-mkz
+Section: misc
+Priority: extra
+Maintainer: Kevin Hallenbeck <khallenbeck@dataspeedinc.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin
+Homepage: http://dataspeedinc.com
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-dbw-mkz
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-dbw-mkz-can, ros-kinetic-dbw-mkz-description, ros-kinetic-dbw-mkz-joystick-demo, ros-kinetic-dbw-mkz-msgs
+Description: Drive-by-wire interface to the Dataspeed Inc.
+ Lincoln MKZ DBW kit
