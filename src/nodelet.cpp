@@ -43,13 +43,6 @@ namespace dbw_mkz_can
 class DbwNodelet : public nodelet::Nodelet
 {
 public:
-  DbwNodelet()
-  {
-  }
-  ~DbwNodelet()
-  {
-  }
-
   void onInit(void)
   {
     node_.reset(new DbwNode(getNodeHandle(), getPrivateNodeHandle()));
