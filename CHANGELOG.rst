@@ -2,6 +2,13 @@
 Changelog for package dbw_mkz_can
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.1.1 (2019-03-01)
+------------------
+* Updated firmware versions
+* Refactored tcpNoDelay() for subscribers
+* Added missing tests for PlatformVersion.h
+* Contributors: Kevin Hallenbeck
+
 1.1.0 (2018-11-30)
 ------------------
 * Updated firmware versions
