@@ -42,15 +42,15 @@ namespace dbw_mkz_can
 
 // Latest firmware versions
 PlatformMap FIRMWARE_LATEST({
-  {PlatformVersion(P_FORD_CD4, M_BPEC,  ModuleVersion(2,1,0))},
-  {PlatformVersion(P_FORD_CD4, M_TPEC,  ModuleVersion(2,1,0))},
-  {PlatformVersion(P_FORD_CD4, M_STEER, ModuleVersion(2,1,0))},
-  {PlatformVersion(P_FORD_CD4, M_SHIFT, ModuleVersion(2,1,0))},
-  {PlatformVersion(P_FORD_P5,  M_TPEC,  ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_P5,  M_STEER, ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_P5,  M_SHIFT, ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_P5,  M_ABS,   ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_P5,  M_BOO,   ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_CD4, M_BPEC,  ModuleVersion(2,1,2))},
+  {PlatformVersion(P_FORD_CD4, M_TPEC,  ModuleVersion(2,1,2))},
+  {PlatformVersion(P_FORD_CD4, M_STEER, ModuleVersion(2,1,2))},
+  {PlatformVersion(P_FORD_CD4, M_SHIFT, ModuleVersion(2,1,2))},
+  {PlatformVersion(P_FORD_P5,  M_TPEC,  ModuleVersion(1,0,2))},
+  {PlatformVersion(P_FORD_P5,  M_STEER, ModuleVersion(1,0,2))},
+  {PlatformVersion(P_FORD_P5,  M_SHIFT, ModuleVersion(1,0,2))},
+  {PlatformVersion(P_FORD_P5,  M_ABS,   ModuleVersion(1,0,2))},
+  {PlatformVersion(P_FORD_P5,  M_BOO,   ModuleVersion(1,0,2))},
 });
 
 // Minimum firmware versions required for the timeout bit
@@ -135,7 +135,7 @@ DbwNode::DbwNode(ros::NodeHandle &node, ros::NodeHandle &priv_nh)
   joint_state_.name[JOINT_SL] = "steer_fl";
   joint_state_.name[JOINT_SR] = "steer_fr";
 
-  // Set up Publishers
+  // Setup Publishers
   pub_can_ = node.advertise<can_msgs::Frame>("can_tx", 10);
   pub_brake_ = node.advertise<dbw_mkz_msgs::BrakeReport>("brake_report", 2);
   pub_throttle_ = node.advertise<dbw_mkz_msgs::ThrottleReport>("throttle_report", 2);
@@ -161,17 +161,18 @@ DbwNode::DbwNode(ros::NodeHandle &node, ros::NodeHandle &priv_nh)
   pub_sys_enable_ = node.advertise<std_msgs::Bool>("dbw_enabled", 1, true);
   publishDbwEnabled();
 
-  // Set up Subscribers
-  sub_enable_ = node.subscribe("enable", 10, &DbwNode::recvEnable, this, ros::TransportHints().tcpNoDelay(true));
-  sub_disable_ = node.subscribe("disable", 10, &DbwNode::recvDisable, this, ros::TransportHints().tcpNoDelay(true));
-  sub_can_ = node.subscribe("can_rx", 100, &DbwNode::recvCAN, this, ros::TransportHints().tcpNoDelay(true));
-  sub_brake_ = node.subscribe("brake_cmd", 1, &DbwNode::recvBrakeCmd, this, ros::TransportHints().tcpNoDelay(true));
-  sub_throttle_ = node.subscribe("throttle_cmd", 1, &DbwNode::recvThrottleCmd, this, ros::TransportHints().tcpNoDelay(true));
-  sub_steering_ = node.subscribe("steering_cmd", 1, &DbwNode::recvSteeringCmd, this, ros::TransportHints().tcpNoDelay(true));
-  sub_gear_ = node.subscribe("gear_cmd", 1, &DbwNode::recvGearCmd, this, ros::TransportHints().tcpNoDelay(true));
-  sub_turn_signal_ = node.subscribe("turn_signal_cmd", 1, &DbwNode::recvTurnSignalCmd, this, ros::TransportHints().tcpNoDelay(true));
+  // Setup Subscribers
+  const ros::TransportHints NODELAY = ros::TransportHints().tcpNoDelay();
+  sub_enable_ = node.subscribe("enable", 10, &DbwNode::recvEnable, this, NODELAY);
+  sub_disable_ = node.subscribe("disable", 10, &DbwNode::recvDisable, this, NODELAY);
+  sub_can_ = node.subscribe("can_rx", 100, &DbwNode::recvCAN, this, NODELAY);
+  sub_brake_ = node.subscribe("brake_cmd", 1, &DbwNode::recvBrakeCmd, this, NODELAY);
+  sub_throttle_ = node.subscribe("throttle_cmd", 1, &DbwNode::recvThrottleCmd, this, NODELAY);
+  sub_steering_ = node.subscribe("steering_cmd", 1, &DbwNode::recvSteeringCmd, this, NODELAY);
+  sub_gear_ = node.subscribe("gear_cmd", 1, &DbwNode::recvGearCmd, this, NODELAY);
+  sub_turn_signal_ = node.subscribe("turn_signal_cmd", 1, &DbwNode::recvTurnSignalCmd, this, NODELAY);
 
-  // Set up Timer
+  // Setup Timer
   timer_ = node.createTimer(ros::Duration(1 / 20.0), &DbwNode::timerCallback, this);
 }
 
