@@ -1,3 +1,32 @@
+## dbw_mkz_ros (kinetic) - 1.1.1-0
+
+The packages in the `dbw_mkz_ros` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release dbw_mkz_ros --rosdistro kinetic` on `Mon, 04 Mar 2019 18:06:59 -0000`
+
+These packages were released:
+- `dbw_mkz`
+- `dbw_mkz_can`
+- `dbw_mkz_description`
+- `dbw_mkz_joystick_demo`
+- `dbw_mkz_msgs`
+- `dbw_mkz_twist_controller`
+
+Version of package(s) in repository `dbw_mkz_ros`:
+
+- upstream repository: https://bitbucket.org/dataspeedinc/dbw_mkz_ros
+- release repository: https://github.com/DataspeedInc-release/dbw_mkz_ros-release.git
+- rosdistro version: `1.1.0-0`
+- old version: `1.1.0-0`
+- new version: `1.1.1-0`
+
+Versions of tools used:
+
+- bloom version: `0.7.2`
+- catkin_pkg version: `0.4.10`
+- rosdep version: `0.15.1`
+- rosdistro version: `0.7.2`
+- vcstools version: `0.1.40`
+
+
 ## dbw_mkz_ros (indigo) - 1.1.1-0
 
 The packages in the `dbw_mkz_ros` repository were released into the `indigo` distro by running `/usr/bin/bloom-release dbw_mkz_ros --rosdistro indigo` on `Mon, 04 Mar 2019 18:04:02 -0000`
