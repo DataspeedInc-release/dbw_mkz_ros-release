@@ -2,8 +2,13 @@ Header header
 
 # Steering Wheel
 float32 steering_wheel_angle      # rad
-float32 steering_wheel_angle_cmd  # rad
+float32 steering_wheel_cmd        # rad or Nm
 float32 steering_wheel_torque     # Nm
+uint8 steering_wheel_cmd_type
+
+# Command types
+uint8 CMD_ANGLE=0
+uint8 CMD_TORQUE=1
 
 # Vehicle Speed
 float32 speed                     # m/s
