@@ -11,6 +11,10 @@ float32 torque_input
 float32 torque_cmd
 float32 torque_output
 
+# Braking decel (m/s^2)
+float32 decel_cmd
+float32 decel_output
+
 # Brake On Off (BOO), brake lights
 bool boo_input
 bool boo_cmd
