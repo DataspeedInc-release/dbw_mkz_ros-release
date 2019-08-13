@@ -2,6 +2,28 @@
 Changelog for package dbw_mkz_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.3 (2019-08-13)
+------------------
+
+1.2.2 (2019-07-24)
+------------------
+
+1.2.1 (2019-07-11)
+------------------
+* Added support for non-hybrid brake report values
+* Added gear number to throttle info message
+* Added throttle and brake limp-home statuses
+* Contributors: Kevin Hallenbeck, Sun Hwang
+
+1.2.0 (2019-05-03)
+------------------
+* Added angle/torque steering command modes (not supported on all platforms)
+* Added odometer and battery voltage to fuel level report
+* Contributors: Kevin Hallenbeck
+
+1.1.2 (2019-03-14)
+------------------
+
 1.1.1 (2019-03-01)
 ------------------
 
