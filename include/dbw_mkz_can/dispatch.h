@@ -1,7 +1,7 @@
 /*********************************************************************
  * Software License Agreement (BSD License)
  *
- *  Copyright (c) 2015-2018, Dataspeed Inc.
+ *  Copyright (c) 2015-2019, Dataspeed Inc.
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -38,6 +38,8 @@
 
 namespace dbw_mkz_can
 {
+
+#pragma pack(push, 1) // Pack structures to a single byte
 
 typedef struct {
   uint16_t PCMD;
@@ -113,7 +115,8 @@ typedef struct {
   uint8_t IGNORE :1;
   uint8_t :1;
   uint8_t QUIET :1;
-  uint8_t :3;
+  uint8_t :2;
+  uint8_t CMD_TYPE :1;
   uint8_t SVEL;
   uint8_t :8;
   uint8_t :8;
@@ -123,7 +126,8 @@ typedef struct {
 
 typedef struct {
   int16_t ANGLE;
-  int16_t CMD;
+  int16_t CMD :15;
+  uint8_t TMODE :1; // Torque mode
   uint16_t SPEED;
   int8_t TORQUE;
   uint8_t ENABLED :1;
@@ -266,7 +270,12 @@ typedef struct {
 } MsgReportTirePressure;
 
 typedef struct {
-  int16_t fuel_level;
+  int16_t  fuel_level :11;    // 0.18696 %
+  uint8_t :3;
+  uint16_t battery_hev :10;   // 0.5 V
+  uint8_t  battery_12v :8;    // 0.0625 V
+  uint32_t odometer :24;      // 0.1 km
+  uint8_t :8;
 } MsgReportFuelLevel;
 
 typedef struct {
@@ -297,30 +306,32 @@ typedef struct {
 
 typedef struct {
   uint16_t brake_torque_request :12;
-  uint16_t hsa_stat :3;
-  uint16_t stationary :1;
+  uint8_t hsa_stat :3;
+  uint8_t stationary :1;
   uint16_t brake_torque_actual :12;
-  uint16_t hsa_mode :2;
-  uint16_t parking_brake :2;
+  uint8_t hsa_mode :2;
+  uint8_t parking_brake :2;
   int16_t wheel_torque :14;
-  uint16_t :2;
+  uint8_t bped_qf :2;
   int16_t accel_over_ground_est :10;
-  uint16_t abs_active :1;
-  uint16_t abs_enabled :1;
-  uint16_t stab_active :1;
-  uint16_t stab_enabled :1;
-  uint16_t trac_active :1;
-  uint16_t trac_enabled :1;
+  uint8_t abs_active :1;
+  uint8_t abs_enabled :1;
+  uint8_t stab_active :1;
+  uint8_t stab_enabled :1;
+  uint8_t trac_active :1;
+  uint8_t trac_enabled :1;
 } MsgReportBrakeInfo;
 
 typedef struct {
   uint16_t engine_rpm :16;
   uint16_t throttle_pc :10;
-  uint16_t :6;
-  int16_t throttle_rate :8;
-  uint16_t :8;
-  uint16_t :8;
-  uint16_t :8;
+  uint8_t :4;
+  uint8_t aped_qf :2;
+  int8_t throttle_rate :8;
+  uint8_t gear_num :5;
+  uint8_t  :3;
+  uint8_t :8;
+  uint8_t :8;
 } MsgReportThrottleInfo;
 
 typedef struct {
@@ -339,20 +350,23 @@ typedef struct {
 } MsgReportDriverAssist;
 
 typedef enum {
-  LIC_MUX_F0 = 0x00, // Feature 0 (Main)
-  LIC_MUX_MAC   = 0x80,
-  LIC_MUX_DATE0 = 0x81,
-  LIC_MUX_DATE1 = 0x82,
-  LIC_MUX_VIN0  = 0x83,
-  LIC_MUX_VIN1  = 0x84,
-  LIC_MUX_VIN2  = 0x85,
+  LIC_MUX_F0     = 0x00, // Feature 0 (Main)
+  LIC_MUX_LDATE0 = 0x41,
+  LIC_MUX_LDATE1 = 0x42,
+  LIC_MUX_MAC    = 0x80,
+  LIC_MUX_BDATE0 = 0x81,
+  LIC_MUX_BDATE1 = 0x82,
+  LIC_MUX_VIN0   = 0x83,
+  LIC_MUX_VIN1   = 0x84,
+  LIC_MUX_VIN2   = 0x85,
 } LicenseMux;
 typedef struct {
   uint8_t mux;
   uint8_t ready :1;
   uint8_t trial :1;
   uint8_t expired :1;
-  uint8_t :5;
+  uint8_t :1;
+  uint8_t module :4;
   union {
     struct {
       uint8_t enabled :1;
@@ -362,6 +376,22 @@ typedef struct {
       uint16_t trials_used;
       uint16_t trials_left;
     } license;
+    struct {
+        uint8_t ldate0;
+        uint8_t ldate1;
+        uint8_t ldate2;
+        uint8_t ldate3;
+        uint8_t ldate4;
+        uint8_t ldate5;
+    } ldate0;
+    struct {
+        uint8_t ldate6;
+        uint8_t ldate7;
+        uint8_t ldate8;
+        uint8_t ldate9;
+        uint8_t :8;
+        uint8_t :8;
+    } ldate1;    
     struct {
       uint8_t addr0;
       uint8_t addr1;
@@ -377,7 +407,7 @@ typedef struct {
       uint8_t date3;
       uint8_t date4;
       uint8_t date5;
-    } date0;
+    } bdate0;
     struct {
       uint8_t date6;
       uint8_t date7;
@@ -385,7 +415,7 @@ typedef struct {
       uint8_t date9;
       uint8_t :8;
       uint8_t :8;
-    } date1;
+    } bdate1;
     struct {
       uint8_t vin00;
       uint8_t vin01;
@@ -441,7 +471,7 @@ static void dispatchAssertSizes() {
   BUILD_ASSERT(8 == sizeof(MsgReportGps3));
   BUILD_ASSERT(8 == sizeof(MsgReportWheelPosition));
   BUILD_ASSERT(8 == sizeof(MsgReportTirePressure));
-  BUILD_ASSERT(2 == sizeof(MsgReportFuelLevel));
+  BUILD_ASSERT(8 == sizeof(MsgReportFuelLevel));
   BUILD_ASSERT(8 == sizeof(MsgReportSurround));
   BUILD_ASSERT(8 == sizeof(MsgReportBrakeInfo));
   BUILD_ASSERT(8 == sizeof(MsgReportThrottleInfo));
@@ -478,6 +508,8 @@ enum {
   ID_LICENSE                = 0x07E,
   ID_VERSION                = 0x07F,
 };
+
+#pragma pack(pop) // Undo packing
 
 } // namespace dbw_mkz_can
 
