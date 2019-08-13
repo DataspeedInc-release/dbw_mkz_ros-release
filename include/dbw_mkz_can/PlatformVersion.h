@@ -1,7 +1,7 @@
 /*********************************************************************
  * Software License Agreement (BSD License)
  *
- *  Copyright (c) 2015-2018, Dataspeed Inc.
+ *  Copyright (c) 2015-2019, Dataspeed Inc.
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -45,6 +45,7 @@ namespace dbw_mkz_can
 typedef enum {
   P_FORD_CD4 = 0x00, // Lincoln MKZ, Ford Fusion/Mondeo
   P_FORD_P5  = 0x01, // Ford F150
+  P_FORD_C1  = 0x02, // Ford Transit Connect
   P_FCA_RU   = 0x10, // Chrysler Pacifica
   P_FCA_WK2  = 0x11, // Jeep Grand Cherokee
 } Platform;
@@ -53,16 +54,18 @@ typedef enum {
 typedef enum {
   M_BPEC  = 1, // Brake Pedal Emulator Combo
   M_TPEC  = 2, // Throttle Pedal Emulator Combo
-  M_STEER = 3, // Steering
+  M_STEER = 3, // CAN Steering and gateway
   M_SHIFT = 4, // Shifting
   M_ABS   = 5, // ACC/AEB Braking
   M_BOO   = 6, // Brake-On-Off for ABS Braking
+  M_EPS   = 7, // EPS Steering
 } Module;
 
 static const char* platformToString(Platform x) {
   switch (x) {
     case P_FORD_CD4: return "FORD_CD4";
     case P_FORD_P5:  return "FORD_P5";
+    case P_FORD_C1:  return "FORD_C1";
     case P_FCA_RU:   return "FCA_RU";
     case P_FCA_WK2:  return "FCA_WK2";
     default:         return "UNKNOWN";
@@ -77,6 +80,7 @@ static const char* moduleToString(Module x) {
     case M_SHIFT: return "SHIFT";
     case M_ABS:   return "ABS  ";
     case M_BOO:   return "BOO  ";
+    case M_EPS:   return "EPS  ";
     default:      return "UNKNOWN";
   }
 }
