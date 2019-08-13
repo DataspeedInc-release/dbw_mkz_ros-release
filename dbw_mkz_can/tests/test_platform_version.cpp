@@ -83,6 +83,7 @@ TEST(ModuleVersion, platformToString)
 {
   EXPECT_STREQ("FORD_CD4", platformToString(P_FORD_CD4));
   EXPECT_STREQ("FORD_P5",  platformToString(P_FORD_P5));
+  EXPECT_STREQ("FORD_C1",  platformToString(P_FORD_C1));
   EXPECT_STREQ("FCA_RU",   platformToString(P_FCA_RU));
   EXPECT_STREQ("FCA_WK2",  platformToString(P_FCA_WK2));
   for (size_t i = 0x20; i <= UINT8_MAX; i++) {
@@ -99,8 +100,9 @@ TEST(ModuleVersion, moduleToString)
   EXPECT_STREQ("SHIFT", moduleToString(M_SHIFT));
   EXPECT_STREQ("ABS  ", moduleToString(M_ABS));
   EXPECT_STREQ("BOO  ", moduleToString(M_BOO));
+  EXPECT_STREQ("EPS  ", moduleToString(M_EPS));
   EXPECT_STREQ("UNKNOWN", moduleToString((Module)0));
-  for (size_t i = 7; i <= UINT8_MAX; i++) {
+  for (size_t i = 8; i <= UINT8_MAX; i++) {
     EXPECT_STREQ("UNKNOWN", moduleToString((Module)i)) << "i = " << i;
   }
 }
