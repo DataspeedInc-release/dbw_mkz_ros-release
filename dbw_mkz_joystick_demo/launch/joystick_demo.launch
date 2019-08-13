@@ -24,6 +24,7 @@
   <arg name="ignore" default="false"/>
   <arg name="enable" default="true"/>
   <arg name="count" default="false"/>
+  <arg name="strq" default="false"/>
   <arg name="svel" default="0.0"/>
   <node ns="vehicle" pkg="dbw_mkz_joystick_demo" type="joystick_demo" name="joystick_demo" output="screen" >
     <param name="brake" value="$(arg brake)" /> <!-- Send brake commands -->
@@ -36,6 +37,7 @@
     <param name="ignore" value="$(arg ignore)" /> <!-- Ignore driver overrides -->
     <param name="enable" value="$(arg enable)" /> <!-- Enable buttons -->
     <param name="count" value="$(arg count)" /> <!-- Watchdog counter -->
+    <param name="strq" value="$(arg strq)" /> <!-- Steering torque command (otherwise angle) -->
     <param name="svel" value="$(arg svel)" /> <!-- Steering velocity limit -->
   </node>
 

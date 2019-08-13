@@ -1,7 +1,7 @@
 /*********************************************************************
  * Software License Agreement (BSD License)
  *
- *  Copyright (c) 2015-2018, Dataspeed Inc.
+ *  Copyright (c) 2015-2019, Dataspeed Inc.
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -60,10 +60,13 @@ JoystickDemo::JoystickDemo(ros::NodeHandle &node, ros::NodeHandle &priv_nh) : co
   ignore_ = false;
   enable_ = true;
   count_ = false;
+  strq_ = false;
   svel_ = 0.0;
+  last_steering_filt_output_ = 0.0;
   priv_nh.getParam("ignore", ignore_);
   priv_nh.getParam("enable", enable_);
   priv_nh.getParam("count", count_);
+  priv_nh.getParam("strq", strq_);
   priv_nh.getParam("svel", svel_);
 
   sub_joy_ = node.subscribe("/joy", 1, &JoystickDemo::recvJoy, this);
@@ -106,6 +109,7 @@ void JoystickDemo::cmdCallback(const ros::TimerEvent& event)
   if (event.current_real - data_.stamp > ros::Duration(0.1)) {
     data_.joy_throttle_valid = false;
     data_.joy_brake_valid = false;
+    last_steering_filt_output_ = 0.0;
     return;
   }
 
@@ -142,10 +146,25 @@ void JoystickDemo::cmdCallback(const ros::TimerEvent& event)
     msg.enable = true;
     msg.ignore = ignore_;
     msg.count = counter_;
-    msg.steering_wheel_angle_cmd = data_.steering_joy;
-    msg.steering_wheel_angle_velocity = svel_;
-    if (!data_.steering_mult) {
-      msg.steering_wheel_angle_cmd *= 0.5;
+    if (!strq_) {
+      msg.cmd_type = dbw_mkz_msgs::SteeringCmd::CMD_ANGLE;
+
+      float raw_steering_cmd;
+      if (data_.steering_mult) {
+        raw_steering_cmd = dbw_mkz_msgs::SteeringCmd::ANGLE_MAX * data_.steering_joy;
+      } else {
+        raw_steering_cmd = 0.5 * dbw_mkz_msgs::SteeringCmd::ANGLE_MAX * data_.steering_joy;
+      }
+
+      float tau = 0.1;
+      float filtered_steering_cmd = 0.02 / tau * raw_steering_cmd + (1 - 0.02 / tau) * last_steering_filt_output_;
+      last_steering_filt_output_ = filtered_steering_cmd;
+
+      msg.steering_wheel_angle_velocity = svel_;
+      msg.steering_wheel_angle_cmd = filtered_steering_cmd;
+    } else {
+      msg.cmd_type = dbw_mkz_msgs::SteeringCmd::CMD_TORQUE;
+      msg.steering_wheel_torque_cmd = dbw_mkz_msgs::SteeringCmd::TORQUE_MAX * data_.steering_joy;
     }
     pub_steering_.publish(msg);
   }
@@ -215,7 +234,7 @@ void JoystickDemo::recvJoy(const sensor_msgs::Joy::ConstPtr& msg)
   }
 
   // Steering
-  data_.steering_joy = 470.0 * M_PI / 180.0 * ((fabs(msg->axes[AXIS_STEER_1]) > fabs(msg->axes[AXIS_STEER_2])) ? msg->axes[AXIS_STEER_1] : msg->axes[AXIS_STEER_2]);
+  data_.steering_joy = (fabs(msg->axes[AXIS_STEER_1]) > fabs(msg->axes[AXIS_STEER_2])) ? msg->axes[AXIS_STEER_1] : msg->axes[AXIS_STEER_2];
   data_.steering_mult = msg->buttons[BTN_STEER_MULT_1] || msg->buttons[BTN_STEER_MULT_2];
 
   // Turn signal
