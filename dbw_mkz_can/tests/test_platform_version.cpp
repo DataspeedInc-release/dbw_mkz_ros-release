@@ -84,6 +84,7 @@ TEST(ModuleVersion, platformToString)
   EXPECT_STREQ("FORD_CD4", platformToString(P_FORD_CD4));
   EXPECT_STREQ("FORD_P5",  platformToString(P_FORD_P5));
   EXPECT_STREQ("FORD_C1",  platformToString(P_FORD_C1));
+  EXPECT_STREQ("FORD_U6",  platformToString(P_FORD_U6));
   EXPECT_STREQ("FCA_RU",   platformToString(P_FCA_RU));
   EXPECT_STREQ("FCA_WK2",  platformToString(P_FCA_WK2));
   for (size_t i = 0x20; i <= UINT8_MAX; i++) {
