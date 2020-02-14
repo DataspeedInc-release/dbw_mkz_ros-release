@@ -1,0 +1,196 @@
+ros-kinetic-dbw-mkz-joystick-demo (1.2.7-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 14 Feb 2020 05:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.2.6-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 11 Nov 2019 05:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.2.5-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 30 Oct 2019 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.2.4-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 13 Sep 2019 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.2.3-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 13 Aug 2019 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.2.2-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 24 Jul 2019 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.2.1-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 11 Jul 2019 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.2.0-1xenial) xenial; urgency=high
+
+  * Added angle/torque steering command modes (not supported on all platforms)
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 03 May 2019 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.1.2-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 14 Mar 2019 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.1.1-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 01 Mar 2019 05:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.1.0-1xenial) xenial; urgency=high
+
+  * Use the ${catkin_EXPORTED_TARGETS} macro for target dependencies
+  * Removed joystick deadzone
+  * Added parameters for brake and throttle gains (sanitized from 0 to 1)
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 30 Nov 2018 05:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.17-1xenial) xenial; urgency=high
+
+  * Added option to enable/disable each command topic
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Sat, 27 Oct 2018 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.16-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 29 Aug 2018 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.15-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 21 Aug 2018 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.14-1xenial) xenial; urgency=high
+
+  * Removed roslaunch check that was failing in indigo due to rviz
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 20 Aug 2018 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.13-1xenial) xenial; urgency=high
+
+  * Warn and suggest fix for incorrect Logitech gamepad X/D switch configuration
+  * Removed joystick_demo namespace
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 06 Jun 2018 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.12-1xenial) xenial; urgency=high
+
+  * Added argument for joystick device path
+  * Added roslaunch tests
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 30 Jan 2018 05:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.11-1xenial) xenial; urgency=high
+
+  * Added missing dependencies
+  * Handle joystick unplug and re-plugin events
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 19 Oct 2017 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.10-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 03 Oct 2017 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.9-1xenial) xenial; urgency=high
+
+  * Changed joystick demo enable buttons default to true
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 19 Sep 2017 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.8-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 07 Sep 2017 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.7-1xenial) xenial; urgency=high
+
+  * Added steering wheel velocity (svel) parameter
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 21 Aug 2017 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.6-1xenial) xenial; urgency=high
+
+  * Check for expected joystick button and axis count
+  * Additional dependencies
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 21 Jun 2017 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.5-1xenial) xenial; urgency=high
+
+  * Updated package.xml format to version 2
+  * Add missing msg dependencies
+  * Joystick demo cleanup
+  * Unique target names
+  * Contributors: Kevin Hallenbeck, P. J. Reed
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 25 Apr 2017 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.4-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 06 Dec 2016 05:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.3-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 17 Nov 2016 05:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.2-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 07 Nov 2016 05:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.1-1xenial) xenial; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 10 Oct 2016 04:00:00 -0000
+
+ros-kinetic-dbw-mkz-joystick-demo (1.0.0-1xenial) xenial; urgency=high
+
+  * Initial release
+  * Contributors: Kevin Hallenbeck, Micho Radovnikovich
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 28 Sep 2016 04:00:00 -0000
+
+
