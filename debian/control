@@ -1,0 +1,12 @@
+Source: ros-kinetic-dbw-mkz-description
+Section: misc
+Priority: optional
+Maintainer: Kevin Hallenbeck <khallenbeck@dataspeedinc.com>
+Build-Depends: debhelper (>= 9.0.0), ros-kinetic-catkin, ros-kinetic-roslaunch, ros-kinetic-roslib, ros-kinetic-rviz
+Homepage: http://dataspeedinc.com
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-dbw-mkz-description
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-kinetic-robot-state-publisher, ros-kinetic-roslaunch, ros-kinetic-urdf, ros-kinetic-xacro
+Description: URDF and meshes describing the Lincoln MKZ.
