@@ -57,11 +57,11 @@ echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
 # Install SDK
 echo "Installing SDK..."
-bash <(wget -q -O - https://bitbucket.org/DataspeedInc/dbw_mkz_ros/raw/default/dbw_mkz/scripts/sdk_install.bash)
+bash <(wget -q -O - https://bitbucket.org/DataspeedInc/dbw_mkz_ros/raw/master/dbw_mkz/scripts/sdk_install.bash)
 
 # Configure startup script
 mkdir -p $HOME/.config/autostart
-wget -q https://bitbucket.org/DataspeedInc/dbw_mkz_ros/raw/default/dbw_mkz/scripts/joystick_demo.desktop -O $HOME/.config/autostart/joystick_demo.desktop
+wget -q https://bitbucket.org/DataspeedInc/dbw_mkz_ros/raw/master/dbw_mkz/scripts/joystick_demo.desktop -O $HOME/.config/autostart/joystick_demo.desktop
 
 ### Misc fixes ###
 # Fix launcher icons

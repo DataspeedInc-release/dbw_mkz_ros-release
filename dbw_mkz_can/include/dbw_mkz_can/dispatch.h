@@ -194,8 +194,22 @@ typedef struct {
   uint8_t btn_ld_left :1;
   uint8_t btn_ld_right :1;
   uint8_t btn_cc_res_dec :1;
-  uint8_t :8;
-  uint8_t :8;
+  uint8_t :1; // btn_cc_mode
+  uint8_t :1;
+  uint8_t btn_rd_ok :1;
+  uint8_t btn_rd_up :1;
+  uint8_t btn_rd_down :1;
+  uint8_t btn_rd_left :1;
+  uint8_t btn_rd_right :1;
+  uint8_t btn_media :1;
+  uint8_t btn_vol_inc :1;
+  uint8_t btn_vol_dec :1;
+  uint8_t btn_mute :1;
+  uint8_t btn_speak :1;
+  uint8_t btn_prev :1;
+  uint8_t btn_next :1;
+  uint8_t btn_call_start :1;
+  uint8_t btn_call_end :1;
   uint8_t outside_air_temp :8;
 } MsgMiscReport;
 

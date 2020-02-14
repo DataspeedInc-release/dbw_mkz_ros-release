@@ -7,6 +7,7 @@
   <arg name="can_ns" default="/can_bus_dbw" />
 
   <!-- CAN Bus Hardware -->
+  <arg name="filter_can" default="true" />
   <node if="$(arg live)" pkg="dataspeed_can_usb" type="can_node" name="can_node" output="screen">
     <remap from="can_bus_1" to="can_bus_1"/>
     <param name="bitrate_1" value="0" />
@@ -14,10 +15,8 @@
     <param name="bitrate_2" value="0" />
     <remap from="can_bus_3" to="$(arg can_ns)"/>
     <param name="bitrate_3" value="500000" />
-    <param name="channel_3_mask_0"  value="0x800007E0" />
-    <param name="channel_3_match_0" value="0x00000060" /> <!-- SID 0x060 to 0x07F -->
-    <!--param name="channel_3_mask_1"  value="0x80000000" /-->
-    <!--param name="channel_3_match_1" value="0x00000000" /--> <!-- SID 0x000 to 0x7FF -->
+    <param name="channel_3_mask_0"  value="0x800007E0" if="$(arg filter_can)" />
+    <param name="channel_3_match_0" value="0x00000060" if="$(arg filter_can)" /> <!-- SID 0x060 to 0x07F -->
     <remap from="can_bus_4" to="can_bus_4"/>
     <param name="bitrate_4" value="0" />
   </node>
