@@ -2,7 +2,7 @@
 
 # Perform an SDK Install
 #./sdk_install.bash
-bash <(wget -q -O - https://bitbucket.org/DataspeedInc/dbw_mkz_ros/raw/default/dbw_mkz/scripts/sdk_install.bash)
+bash <(wget -q -O - https://bitbucket.org/DataspeedInc/dbw_mkz_ros/raw/master/dbw_mkz/scripts/sdk_install.bash)
 
 # Update with apt-get
 #sudo apt-get update && sudo apt-get upgrade && rosdep update
