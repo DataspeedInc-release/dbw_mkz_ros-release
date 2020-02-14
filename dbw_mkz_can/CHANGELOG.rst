@@ -2,6 +2,27 @@
 Changelog for package dbw_mkz_can
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.7 (2020-02-14)
+------------------
+* Update firmware versions
+* Report NAN for signals that are unavailable/faulted
+* Use fewer function calls to setup message sync
+* Add Lincoln Aviator to list of platforms
+* Contributors: Kevin Hallenbeck
+
+1.2.6 (2019-11-11)
+------------------
+
+1.2.5 (2019-10-30)
+------------------
+* Add steering wheel buttons in Misc1Report
+* Contributors: Kevin Hallenbeck, Sun Hwang
+
+1.2.4 (2019-09-13)
+------------------
+* Added argument to enable/disable CAN message filtering on DBW message range
+* Contributors: Kevin Hallenbeck
+
 1.2.3 (2019-08-13)
 ------------------
 * Updated firmware versions
