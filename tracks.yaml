@@ -44,8 +44,8 @@ tracks:
     release_repo_url: null
     release_tag: :{version}
     ros_distro: kinetic
-    vcs_type: hg
-    vcs_uri: https://bitbucket.org/dataspeedinc/dbw_mkz_ros
+    vcs_type: git
+    vcs_uri: https://bitbucket.org/dataspeedinc/dbw_mkz_ros.git
     version: :{auto}
   melodic:
     actions:
