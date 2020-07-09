@@ -6,3 +6,5 @@ uint8 OVERRIDE=2          # Override on brake, throttle, or steering
 uint8 ROTARY_LOW=3        # Rotary shifter can't shift to Low
 uint8 ROTARY_PARK=4       # Rotary shifter can't shift out of Park
 uint8 VEHICLE=5           # Rejected by vehicle (try pressing the brakes)
+uint8 UNSUPPORTED=6       # Unsupported gear command
+uint8 FAULT=7             # System in fault state
