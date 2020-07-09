@@ -10,6 +10,9 @@ elif [ -e /opt/ros/kinetic/setup.bash ]; then
 elif [ -e /opt/ros/melodic/setup.bash ]; then
   echo "Detected ROS Melodic."
   source /opt/ros/melodic/setup.bash
+elif [ -e /opt/ros/noetic/setup.bash ]; then
+  echo "Detected ROS Noetic."
+  source /opt/ros/noetic/setup.bash
 else
   echo "Failed to detected ROS version."
   exit 1
