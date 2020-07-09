@@ -2,6 +2,16 @@
 Changelog for package dbw_mkz_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.2.9 (2020-07-09)
+------------------
+* Add gear reject enumerations
+* Increase CMake minimum version to 3.0.2 to avoid warning about CMP0048
+  http://wiki.ros.org/noetic/Migration#Increase_required_CMake_version_to_avoid_author_warning
+* Contributors: Kevin Hallenbeck
+
+1.2.8 (2020-02-20)
+------------------
+
 1.2.7 (2020-02-14)
 ------------------
 
