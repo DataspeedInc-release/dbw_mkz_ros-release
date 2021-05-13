@@ -62,9 +62,8 @@ typedef struct {
   uint16_t PI;
   uint16_t PC;
   uint16_t PO;
-  uint8_t BTYPE :1;
+  uint8_t BTYPE :2;
   uint8_t BC :1;
-  uint8_t BI :1;
   uint8_t WDCBRK :1;
   uint8_t WDCSRC :4;
   uint8_t ENABLED :1;
@@ -115,7 +114,8 @@ typedef struct {
   uint8_t IGNORE :1;
   uint8_t :1;
   uint8_t QUIET :1;
-  uint8_t :2;
+  uint8_t RES1 :1;
+  uint8_t :1;
   uint8_t CMD_TYPE :1;
   uint8_t SVEL;
   uint8_t :8;
@@ -142,7 +142,8 @@ typedef struct {
 
 typedef struct {
   uint8_t GCMD :3;
-  uint8_t :4;
+  uint8_t :3;
+  uint8_t RES1 :1;
   uint8_t CLEAR :1;
 } MsgGearCmd;
 
@@ -343,9 +344,9 @@ typedef struct {
   uint8_t aped_qf :2;
   int8_t throttle_rate :8;
   uint8_t gear_num :5;
-  uint8_t  :3;
-  uint8_t :8;
-  uint8_t :8;
+  uint8_t :3;
+  uint8_t :2;
+  int16_t batt_curr :14;
 } MsgReportThrottleInfo;
 
 typedef struct {
@@ -364,7 +365,14 @@ typedef struct {
 } MsgReportDriverAssist;
 
 typedef enum {
-  LIC_MUX_F0     = 0x00, // Feature 0 (Main)
+  LIC_MUX_F0     = 0x00, // Feature 0 (BASE)
+  LIC_MUX_F1     = 0x01, // Feature 1 (CONTROL)
+  LIC_MUX_F2     = 0x02, // Feature 2 (SENSORS)
+  LIC_MUX_F3     = 0x03, // Feature 3 (unused)
+  LIC_MUX_F4     = 0x04, // Feature 4 (unused)
+  LIC_MUX_F5     = 0x05, // Feature 5 (unused)
+  LIC_MUX_F6     = 0x06, // Feature 6 (unused)
+  LIC_MUX_F7     = 0x07, // Feature 7 (unused)
   LIC_MUX_LDATE0 = 0x41,
   LIC_MUX_LDATE1 = 0x42,
   LIC_MUX_MAC    = 0x80,
