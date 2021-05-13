@@ -61,26 +61,31 @@ namespace dbw_mkz_can
 
 // Latest firmware versions
 PlatformMap FIRMWARE_LATEST({
-  {PlatformVersion(P_FORD_CD4, M_BPEC,  ModuleVersion(2,3,0))},
-  {PlatformVersion(P_FORD_CD4, M_TPEC,  ModuleVersion(2,3,0))},
-  {PlatformVersion(P_FORD_CD4, M_STEER, ModuleVersion(2,3,0))},
-  {PlatformVersion(P_FORD_CD4, M_SHIFT, ModuleVersion(2,3,0))},
-  {PlatformVersion(P_FORD_P5,  M_TPEC,  ModuleVersion(1,2,0))},
-  {PlatformVersion(P_FORD_P5,  M_STEER, ModuleVersion(1,2,0))},
-  {PlatformVersion(P_FORD_P5,  M_SHIFT, ModuleVersion(1,2,0))},
-  {PlatformVersion(P_FORD_P5,  M_ABS,   ModuleVersion(1,2,0))},
-  {PlatformVersion(P_FORD_P5,  M_BOO,   ModuleVersion(1,2,0))},
-  {PlatformVersion(P_FORD_U6,  M_TPEC,  ModuleVersion(0,0,3))},
-  {PlatformVersion(P_FORD_U6,  M_STEER, ModuleVersion(0,0,3))},
-  {PlatformVersion(P_FORD_U6,  M_SHIFT, ModuleVersion(0,0,3))},
-  {PlatformVersion(P_FORD_U6,  M_ABS,   ModuleVersion(0,0,3))},
-  {PlatformVersion(P_FORD_U6,  M_BOO,   ModuleVersion(0,0,3))},
-  {PlatformVersion(P_FORD_C1,  M_TPEC,  ModuleVersion(0,2,0))},
-  {PlatformVersion(P_FORD_C1,  M_STEER, ModuleVersion(0,2,0))},
-  {PlatformVersion(P_FORD_C1,  M_SHIFT, ModuleVersion(0,2,0))},
-  {PlatformVersion(P_FORD_C1,  M_ABS,   ModuleVersion(0,2,0))},
-  {PlatformVersion(P_FORD_C1,  M_BOO,   ModuleVersion(0,2,0))},
-  {PlatformVersion(P_FORD_C1,  M_EPS,   ModuleVersion(0,2,0))},
+  {PlatformVersion(P_FORD_CD4, M_BPEC,  ModuleVersion(2,4,2))},
+  {PlatformVersion(P_FORD_CD4, M_TPEC,  ModuleVersion(2,4,2))},
+  {PlatformVersion(P_FORD_CD4, M_STEER, ModuleVersion(2,4,2))},
+  {PlatformVersion(P_FORD_CD4, M_SHIFT, ModuleVersion(2,4,2))},
+  {PlatformVersion(P_FORD_CD5, M_BOO,   ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_CD5, M_TPEC,  ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_CD5, M_STEER, ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_P5,  M_TPEC,  ModuleVersion(1,3,2))},
+  {PlatformVersion(P_FORD_P5,  M_STEER, ModuleVersion(1,3,2))},
+  {PlatformVersion(P_FORD_P5,  M_SHIFT, ModuleVersion(1,3,2))},
+  {PlatformVersion(P_FORD_P5,  M_ABS,   ModuleVersion(1,3,2))},
+  {PlatformVersion(P_FORD_P5,  M_BOO,   ModuleVersion(1,3,2))},
+  {PlatformVersion(P_FORD_T6,  M_TPEC,  ModuleVersion(0,1,2))},
+  {PlatformVersion(P_FORD_T6,  M_STEER, ModuleVersion(0,1,2))},
+  {PlatformVersion(P_FORD_U6,  M_TPEC,  ModuleVersion(0,1,2))},
+  {PlatformVersion(P_FORD_U6,  M_STEER, ModuleVersion(0,1,2))},
+  {PlatformVersion(P_FORD_U6,  M_SHIFT, ModuleVersion(0,1,2))},
+  {PlatformVersion(P_FORD_U6,  M_ABS,   ModuleVersion(0,1,2))},
+  {PlatformVersion(P_FORD_U6,  M_BOO,   ModuleVersion(0,1,2))},
+  {PlatformVersion(P_FORD_C1,  M_TPEC,  ModuleVersion(1,1,2))},
+  {PlatformVersion(P_FORD_C1,  M_STEER, ModuleVersion(1,1,2))},
+  {PlatformVersion(P_FORD_C1,  M_SHIFT, ModuleVersion(1,1,2))},
+  {PlatformVersion(P_FORD_C1,  M_ABS,   ModuleVersion(1,1,2))},
+  {PlatformVersion(P_FORD_C1,  M_BOO,   ModuleVersion(1,1,2))},
+  {PlatformVersion(P_FORD_C1,  M_EPS,   ModuleVersion(1,1,2))},
 });
 
 // Minimum firmware versions required for the timeout bit
@@ -161,12 +166,12 @@ DbwNode::DbwNode(ros::NodeHandle &node, ros::NodeHandle &priv_nh)
   joint_state_.velocity.resize(JOINT_COUNT);
   joint_state_.effort.resize(JOINT_COUNT);
   joint_state_.name.resize(JOINT_COUNT);
-  joint_state_.name[JOINT_FL] = "wheel_fl"; // Front Left
-  joint_state_.name[JOINT_FR] = "wheel_fr"; // Front Right
-  joint_state_.name[JOINT_RL] = "wheel_rl"; // Rear Left
-  joint_state_.name[JOINT_RR] = "wheel_rr"; // Rear Right
-  joint_state_.name[JOINT_SL] = "steer_fl";
-  joint_state_.name[JOINT_SR] = "steer_fr";
+  joint_state_.name[JOINT_FL] = "wheel_fl_joint"; // Front Left
+  joint_state_.name[JOINT_FR] = "wheel_fr_joint"; // Front Right
+  joint_state_.name[JOINT_RL] = "wheel_rl_joint"; // Rear Left
+  joint_state_.name[JOINT_RR] = "wheel_rr_joint"; // Rear Right
+  joint_state_.name[JOINT_SL] = "steer_fl_joint";
+  joint_state_.name[JOINT_SR] = "steer_fr_joint";
 
   // Setup Publishers
   pub_can_ = node.advertise<can_msgs::Frame>("can_tx", 10);
@@ -188,11 +193,16 @@ DbwNode::DbwNode(ros::NodeHandle &node, ros::NodeHandle &priv_nh)
   pub_gps_fix_ = node.advertise<sensor_msgs::NavSatFix>("gps/fix", 10);
   pub_gps_vel_ = node.advertise<geometry_msgs::TwistStamped>("gps/vel", 10);
   pub_gps_time_ = node.advertise<sensor_msgs::TimeReference>("gps/time", 10);
-  pub_joint_states_ = node.advertise<sensor_msgs::JointState>("joint_states", 10);
   pub_twist_ = node.advertise<geometry_msgs::TwistStamped>("twist", 10);
   pub_vin_ = node.advertise<std_msgs::String>("vin", 1, true);
   pub_sys_enable_ = node.advertise<std_msgs::Bool>("dbw_enabled", 1, true);
   publishDbwEnabled();
+
+  // Publish joint states if enabled
+  priv_nh.param("joint_states", enable_joint_states_, true);
+  if (enable_joint_states_) {
+    pub_joint_states_ = node.advertise<sensor_msgs::JointState>("joint_states", 10);
+  }
 
   // Setup Subscribers
   const ros::TransportHints NODELAY = ros::TransportHints().tcpNoDelay();
@@ -236,7 +246,7 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
           faultWatchdog(ptr->FLTWDC, ptr->WDCSRC, ptr->WDCBRK);
           dbw_mkz_msgs::BrakeReport out;
           out.header.stamp = msg->header.stamp;
-          if (ptr->BTYPE == 0) {
+          if (ptr->BTYPE == 0 || firmware_.findModule(M_BPEC).valid()) {
             // Brake pedal emulator for hybrid electric vehicles
             out.pedal_input  = (float)ptr->PI / UINT16_MAX;
             out.pedal_cmd    = (float)ptr->PC / UINT16_MAX;
@@ -244,22 +254,20 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
             out.torque_input  = brakeTorqueFromPedal(out.pedal_input);
             out.torque_cmd    = brakeTorqueFromPedal(out.pedal_cmd);
             out.torque_output = brakeTorqueFromPedal(out.pedal_output);
-            out.decel_cmd = 0;
-            out.decel_output = 0;
-          } else {
+          } else if (ptr->BTYPE == 1 || firmware_.findModule(M_ABS).valid()) {
             // ACC/AEB braking for non-hybrid vehicles
-            out.pedal_input = 0;
-            out.pedal_cmd = 0;
-            out.pedal_output = 0;
             out.torque_input = ptr->PI;
-            out.torque_cmd = 0;
-            out.torque_output = 0;
             out.decel_cmd    = ptr->PC * 1e-3f;
             out.decel_output = ptr->PO * 1e-3f;
+          } else if (ptr->BTYPE == 2) {
+            // Brake pedal actuator for vehicles without brake-by-wire
+            out.torque_input = ptr->PI;
+            out.torque_cmd = ptr->PC;
+            out.torque_output = ptr->PO;
+          } else {
+            ROS_WARN_THROTTLE(5.0, "Unsupported brake report type: %u", ptr->BTYPE);
           }
-          out.boo_input  = ptr->BI ? true : false;
           out.boo_cmd    = ptr->BC ? true : false;
-          out.boo_output = ptr->BI || ptr->BC;
           out.enabled = ptr->ENABLED ? true : false;
           out.override = ptr->OVERRIDE ? true : false;
           out.driver = ptr->DRIVER ? true : false;
@@ -367,7 +375,9 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
           twist.twist.linear.x = out.speed;
           twist.twist.angular.z = out.speed * tan(out.steering_wheel_angle / steering_ratio_) / acker_wheelbase_;
           pub_twist_.publish(twist);
-          publishJointStates(msg->header.stamp, NULL, &out);
+          if (enable_joint_states_) {
+            publishJointStates(msg->header.stamp, NULL, &out);
+          }
           if (ptr->FLTBUS1 || ptr->FLTBUS2 || ptr->FLTPWR) {
             ROS_WARN_THROTTLE(5.0, "Steering fault. FLT1: %s FLT2: %s FLTPWR: %s",
                 ptr->FLTBUS1 ? "true, " : "false,",
@@ -522,7 +532,9 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
             out.rear_right = (float)ptr->rear_right * 0.01f;
           }
           pub_wheel_speeds_.publish(out);
-          publishJointStates(msg->header.stamp, &out, NULL);
+          if (enable_joint_states_) {
+            publishJointStates(msg->header.stamp, &out, NULL);
+          }
         }
         break;
 
@@ -683,7 +695,12 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
           } else {
             out.engine_rpm = (float)ptr->engine_rpm * 0.25f;
           }
-          out.gear_num.num = ptr->gear_num;      
+          out.gear_num.num = ptr->gear_num;
+          if ((uint16_t)ptr->batt_curr == 0xE000) {
+            out.batt_curr = NAN;
+          } else {
+            out.batt_curr = (float)ptr->batt_curr * 0.0625f;
+          }
           pub_throttle_info_.publish(out);
           if (ptr->aped_qf != dbw_mkz_msgs::QualityFactor::OK) {
             ROS_WARN_THROTTLE(5.0, "Throttle pedal limp-home: %u", ptr->aped_qf);
@@ -804,15 +821,17 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
               pub_vin_.publish(msg);
               ROS_INFO("Licensing: VIN: %s", vin_.c_str());
             }
-          } else if (ptr->mux == LIC_MUX_F0) {
-            const char * const NAME = "BASE"; // Base functionality
+          } else if ((LIC_MUX_F0 <= ptr->mux) && (ptr->mux <= LIC_MUX_F7)) {
+            constexpr std::array<const char*, 8> NAME = {"BASE","CONTROL","SENSORS","","","","",""};
+            const size_t i = ptr->mux - LIC_MUX_F0;
+            const int id = module * NAME.size() + i;
             if (ptr->license.enabled) {
-              ROS_INFO_ONCE_ID(module, "Licensing: %s feature '%s' enabled%s", str_m, NAME, ptr->license.trial ? " as a counted trial" : "");
+              ROS_INFO_ONCE_ID(id, "Licensing: %s feature '%s' enabled%s", str_m, NAME[i], ptr->license.trial ? " as a counted trial" : "");
             } else if (ptr->ready) {
-              ROS_WARN_ONCE_ID(module, "Licensing: %s feature '%s' not licensed. Visit https://www.dataspeedinc.com/products/maintenance-subscription/ to request a license.", str_m, NAME);
+              ROS_WARN_ONCE_ID(id, "Licensing: %s feature '%s' not licensed. Visit https://www.dataspeedinc.com/products/maintenance-subscription/ to request a license.", str_m, NAME[i]);
             }
             if (ptr->ready && (module == M_STEER) && (ptr->license.trial || !ptr->license.enabled)) {
-              ROS_INFO_ONCE("Licensing: Feature '%s' trials used: %u, remaining: %u", NAME,
+              ROS_INFO_ONCE("Licensing: Feature '%s' trials used: %u, remaining: %u", NAME[i],
                             ptr->license.trials_used, ptr->license.trials_left);
             }
           }
@@ -852,10 +871,12 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
                                   "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Throttle. Id: 0x%03X", ID_THROTTLE_CMD);
         break;
       case ID_STEERING_CMD:
-        ROS_WARN_COND(warn_cmds_, "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Steering. Id: 0x%03X", ID_STEERING_CMD);
+        ROS_WARN_COND(warn_cmds_ && !((const MsgSteeringCmd*)msg->data.elems)->RES1,
+                                  "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Steering. Id: 0x%03X", ID_STEERING_CMD);
         break;
       case ID_GEAR_CMD:
-        ROS_WARN_COND(warn_cmds_, "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Shifting. Id: 0x%03X", ID_GEAR_CMD);
+        ROS_WARN_COND(warn_cmds_ && !((const MsgGearCmd*)msg->data.elems)->RES1,
+                                  "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Shifting. Id: 0x%03X", ID_GEAR_CMD);
         break;
       case ID_MISC_CMD:
         ROS_WARN_COND(warn_cmds_, "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Turn Signals. Id: 0x%03X", ID_MISC_CMD);
@@ -996,96 +1017,94 @@ void DbwNode::recvBrakeCmd(const dbw_mkz_msgs::BrakeCmd::ConstPtr& msg)
   out.dlc = sizeof(MsgBrakeCmd);
   MsgBrakeCmd *ptr = (MsgBrakeCmd*)out.data.elems;
   memset(ptr, 0x00, sizeof(*ptr));
-  if (enabled()) {
-    bool fwd_abs = firmware_.findModule(M_ABS).valid(); // Does the ABS braking module exist?
-    bool fwd_bpe = firmware_.findPlatform(M_BPEC) >= FIRMWARE_CMDTYPE; // Minimum required BPEC firmware version
-    bool fwd = !pedal_luts_; // Forward command type, or apply pedal LUTs locally
-    fwd |= fwd_abs; // The local pedal LUTs are for the BPEC module, the ABS module requires forwarding
-    fwd &= fwd_bpe; // Only modern BPEC firmware supports forwarding the command type
-    switch (msg->pedal_cmd_type) {
-      case dbw_mkz_msgs::BrakeCmd::CMD_NONE:
-        break;
-      case dbw_mkz_msgs::BrakeCmd::CMD_PEDAL:
+  bool fwd_abs = firmware_.findModule(M_ABS).valid(); // Does the ABS braking module exist?
+  bool fwd_bpe = firmware_.findPlatform(M_BPEC) >= FIRMWARE_CMDTYPE; // Minimum required BPEC firmware version
+  bool fwd = !pedal_luts_; // Forward command type, or apply pedal LUTs locally
+  fwd |= fwd_abs; // The local pedal LUTs are for the BPEC module, the ABS module requires forwarding
+  fwd &= fwd_bpe; // Only modern BPEC firmware supports forwarding the command type
+  switch (msg->pedal_cmd_type) {
+    case dbw_mkz_msgs::BrakeCmd::CMD_NONE:
+      break;
+    case dbw_mkz_msgs::BrakeCmd::CMD_PEDAL:
+      ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PEDAL;
+      ptr->PCMD = std::clamp<float>(msg->pedal_cmd * UINT16_MAX, 0, UINT16_MAX);
+      if (!firmware_.findModule(M_BPEC).valid() && firmware_.findModule(M_ABS).valid()) {
+        ROS_WARN_THROTTLE(1.0, "Module ABS does not support brake command type PEDAL");
+      }
+      break;
+    case dbw_mkz_msgs::BrakeCmd::CMD_PERCENT:
+      if (fwd) {
+        ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PERCENT;
+        ptr->PCMD = std::clamp<float>(msg->pedal_cmd * UINT16_MAX, 0, UINT16_MAX);
+      } else {
         ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PEDAL;
-        ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, msg->pedal_cmd * UINT16_MAX));
-        if (!firmware_.findModule(M_BPEC).valid() && firmware_.findModule(M_ABS).valid()) {
-          ROS_WARN_THROTTLE(1.0, "Module ABS does not support brake command type PEDAL");
-        }
-        break;
-      case dbw_mkz_msgs::BrakeCmd::CMD_PERCENT:
-        if (fwd) {
-          ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PERCENT;
-          ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, msg->pedal_cmd * UINT16_MAX));
-        } else {
-          ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PEDAL;
-          ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, brakePedalFromPercent(msg->pedal_cmd) * UINT16_MAX));
-        }
-        break;
-      case dbw_mkz_msgs::BrakeCmd::CMD_TORQUE:
-        if (fwd) {
-          ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_TORQUE;
-          ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, msg->pedal_cmd));
-        } else {
-          ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PEDAL;
-          ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, brakePedalFromTorque(msg->pedal_cmd) * UINT16_MAX));
-        }
-        if (!firmware_.findModule(M_BPEC).valid() && firmware_.findModule(M_ABS).valid()) {
-          ROS_WARN_THROTTLE(1.0, "Module ABS does not support brake command type TORQUE");
-        }
-        break;
-      case dbw_mkz_msgs::BrakeCmd::CMD_TORQUE_RQ:
-        if (fwd_abs || fwd_bpe) {
-          // CMD_TORQUE_RQ must be forwarded, there is no local implementation
-          fwd = true;
-          ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_TORQUE_RQ;
-          ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, msg->pedal_cmd));
-        } else if (fwd) {
-          // Fallback to forwarded CMD_TORQUE
-          ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_TORQUE;
-          ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, msg->pedal_cmd));
-        } else {
-          // Fallback to local CMD_TORQUE
-          ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PEDAL;
-          ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, brakePedalFromTorque(msg->pedal_cmd) * UINT16_MAX));
-        }
-        if (!firmware_.findModule(M_BPEC).valid() && firmware_.findModule(M_ABS).valid()) {
-          ROS_WARN_THROTTLE(1.0, "Module ABS does not support brake command type TORQUE_RQ");
-        }
-        break;
-      case dbw_mkz_msgs::BrakeCmd::CMD_DECEL:
-        // CMD_DECEL must be forwarded, there is no local implementation
-        ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_DECEL;
-        ptr->PCMD = std::max((float)0.0, std::min((float)10e3, msg->pedal_cmd * 1e3f));
-        if (!firmware_.findModule(M_ABS).valid() && firmware_.findModule(M_BPEC).valid()) {
-          ROS_WARN_THROTTLE(1.0, "Module BPEC does not support brake command type DECEL");
-        }
-        break;
-      default:
-        ROS_WARN("Unknown brake command type: %u", msg->pedal_cmd_type);
-        break;
-    }
+        ptr->PCMD = std::clamp<float>(brakePedalFromPercent(msg->pedal_cmd) * UINT16_MAX, 0, UINT16_MAX);
+      }
+      break;
+    case dbw_mkz_msgs::BrakeCmd::CMD_TORQUE:
+      if (fwd) {
+        ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_TORQUE;
+        ptr->PCMD = std::clamp<float>(msg->pedal_cmd, 0, UINT16_MAX);
+      } else {
+        ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PEDAL;
+        ptr->PCMD = std::clamp<float>(brakePedalFromTorque(msg->pedal_cmd) * UINT16_MAX, 0, UINT16_MAX);
+      }
+      if (!firmware_.findModule(M_BPEC).valid() && firmware_.findModule(M_ABS).valid()) {
+        ROS_WARN_THROTTLE(1.0, "Module ABS does not support brake command type TORQUE");
+      }
+      break;
+    case dbw_mkz_msgs::BrakeCmd::CMD_TORQUE_RQ:
+      if (fwd_abs || fwd_bpe) {
+        // CMD_TORQUE_RQ must be forwarded, there is no local implementation
+        fwd = true;
+        ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_TORQUE_RQ;
+        ptr->PCMD = std::clamp<float>(msg->pedal_cmd, 0, UINT16_MAX);
+      } else if (fwd) {
+        // Fallback to forwarded CMD_TORQUE
+        ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_TORQUE;
+        ptr->PCMD = std::clamp<float>(msg->pedal_cmd, 0, UINT16_MAX);
+      } else {
+        // Fallback to local CMD_TORQUE
+        ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_PEDAL;
+        ptr->PCMD = std::clamp<float>(brakePedalFromTorque(msg->pedal_cmd) * UINT16_MAX, 0, UINT16_MAX);
+      }
+      if (!firmware_.findModule(M_BPEC).valid() && firmware_.findModule(M_ABS).valid()) {
+        ROS_WARN_THROTTLE(1.0, "Module ABS does not support brake command type TORQUE_RQ");
+      }
+      break;
+    case dbw_mkz_msgs::BrakeCmd::CMD_DECEL:
+      // CMD_DECEL must be forwarded, there is no local implementation
+      ptr->CMD_TYPE = dbw_mkz_msgs::BrakeCmd::CMD_DECEL;
+      ptr->PCMD = std::clamp<float>(msg->pedal_cmd * 1e3f, 0, 10e3);
+      if (!firmware_.findModule(M_ABS).valid() && firmware_.findModule(M_BPEC).valid()) {
+        ROS_WARN_THROTTLE(1.0, "Module BPEC does not support brake command type DECEL");
+      }
+      break;
+    default:
+      ROS_WARN("Unknown brake command type: %u", msg->pedal_cmd_type);
+      break;
+  }
 #if 1 // Manually implement auto BOO control (brake lights) for legacy firmware
-    ptr->ABOO = 1;
-    const PlatformVersion firmware_bpec = firmware_.findPlatform(M_BPEC);
-    if (firmware_bpec.v.valid() && (firmware_bpec < FIRMWARE_CMDTYPE)) {
-      const uint16_t BOO_THRESH_LO = 0.20 * UINT16_MAX;
-      const uint16_t BOO_THRESH_HI = 0.22 * UINT16_MAX;
-      static bool boo_status_ = false;
-      if (boo_status_) {
-        ptr->BCMD = 1;
-      }
-      if (!boo_status_ && (ptr->PCMD > BOO_THRESH_HI)) {
-        ptr->BCMD = 1;
-        boo_status_ = true;
-      } else if (boo_status_ && (ptr->PCMD < BOO_THRESH_LO)) {
-        ptr->BCMD = 0;
-        boo_status_ = false;
-      }
+  ptr->ABOO = 1;
+  const PlatformVersion firmware_bpec = firmware_.findPlatform(M_BPEC);
+  if (firmware_bpec.v.valid() && (firmware_bpec < FIRMWARE_CMDTYPE)) {
+    const uint16_t BOO_THRESH_LO = 0.20 * UINT16_MAX;
+    const uint16_t BOO_THRESH_HI = 0.22 * UINT16_MAX;
+    static bool boo_status_ = false;
+    if (boo_status_) {
+      ptr->BCMD = 1;
     }
+    if (!boo_status_ && (ptr->PCMD > BOO_THRESH_HI)) {
+      ptr->BCMD = 1;
+      boo_status_ = true;
+    } else if (boo_status_ && (ptr->PCMD < BOO_THRESH_LO)) {
+      ptr->BCMD = 0;
+      boo_status_ = false;
+    }
+  }
 #endif
-    if (msg->enable) {
-      ptr->EN = 1;
-    }
+  if (enabled() && msg->enable) {
+    ptr->EN = 1;
   }
   if (clear() || msg->clear) {
     ptr->CLEAR = 1;
@@ -1105,34 +1124,32 @@ void DbwNode::recvThrottleCmd(const dbw_mkz_msgs::ThrottleCmd::ConstPtr& msg)
   out.dlc = sizeof(MsgThrottleCmd);
   MsgThrottleCmd *ptr = (MsgThrottleCmd*)out.data.elems;
   memset(ptr, 0x00, sizeof(*ptr));
-  if (enabled()) {
-    bool fwd = !pedal_luts_; // Forward command type, or apply pedal LUTs locally
-    fwd &= firmware_.findPlatform(M_TPEC) >= FIRMWARE_CMDTYPE; // Minimum required firmware version
-    float cmd = 0.0;
-    switch (msg->pedal_cmd_type) {
-      case dbw_mkz_msgs::ThrottleCmd::CMD_NONE:
-        break;
-      case dbw_mkz_msgs::ThrottleCmd::CMD_PEDAL:
-        ptr->CMD_TYPE = dbw_mkz_msgs::ThrottleCmd::CMD_PEDAL;
+  bool fwd = !pedal_luts_; // Forward command type, or apply pedal LUTs locally
+  fwd &= firmware_.findPlatform(M_TPEC) >= FIRMWARE_CMDTYPE; // Minimum required firmware version
+  float cmd = 0.0;
+  switch (msg->pedal_cmd_type) {
+    case dbw_mkz_msgs::ThrottleCmd::CMD_NONE:
+      break;
+    case dbw_mkz_msgs::ThrottleCmd::CMD_PEDAL:
+      ptr->CMD_TYPE = dbw_mkz_msgs::ThrottleCmd::CMD_PEDAL;
+      cmd = msg->pedal_cmd;
+      break;
+    case dbw_mkz_msgs::ThrottleCmd::CMD_PERCENT:
+      if (fwd) {
+        ptr->CMD_TYPE = dbw_mkz_msgs::ThrottleCmd::CMD_PERCENT;
         cmd = msg->pedal_cmd;
-        break;
-      case dbw_mkz_msgs::ThrottleCmd::CMD_PERCENT:
-        if (fwd) {
-          ptr->CMD_TYPE = dbw_mkz_msgs::ThrottleCmd::CMD_PERCENT;
-          cmd = msg->pedal_cmd;
-        } else {
-          ptr->CMD_TYPE = dbw_mkz_msgs::ThrottleCmd::CMD_PEDAL;
-          cmd = throttlePedalFromPercent(msg->pedal_cmd);
-        }
-        break;
-      default:
-        ROS_WARN("Unknown throttle command type: %u", msg->pedal_cmd_type);
-        break;
-    }
-    ptr->PCMD = std::max((float)0.0, std::min((float)UINT16_MAX, cmd * UINT16_MAX));
-    if (msg->enable) {
-      ptr->EN = 1;
-    }
+      } else {
+        ptr->CMD_TYPE = dbw_mkz_msgs::ThrottleCmd::CMD_PEDAL;
+        cmd = throttlePedalFromPercent(msg->pedal_cmd);
+      }
+      break;
+    default:
+      ROS_WARN("Unknown throttle command type: %u", msg->pedal_cmd_type);
+      break;
+  }
+  ptr->PCMD = std::clamp<float>(cmd * UINT16_MAX, 0, UINT16_MAX);
+  if (enabled() && msg->enable) {
+    ptr->EN = 1;
   }
   if (clear() || msg->clear) {
     ptr->CLEAR = 1;
@@ -1152,33 +1169,31 @@ void DbwNode::recvSteeringCmd(const dbw_mkz_msgs::SteeringCmd::ConstPtr& msg)
   out.dlc = sizeof(MsgSteeringCmd);
   MsgSteeringCmd *ptr = (MsgSteeringCmd*)out.data.elems;
   memset(ptr, 0x00, sizeof(*ptr));
-  if (enabled()) {
-    switch (msg->cmd_type) {
-      case dbw_mkz_msgs::SteeringCmd::CMD_ANGLE:
-        ptr->SCMD = std::max((float)-INT16_MAX, std::min((float)INT16_MAX, (float)(msg->steering_wheel_angle_cmd * (180 / M_PI * 10))));
-        if (fabsf(msg->steering_wheel_angle_velocity) > 0) {
-          if (firmware_.findModule(M_EPS).valid() || (firmware_.findPlatform(M_STEER) >= FIRMWARE_HIGH_RATE_LIMIT)) {
-            ptr->SVEL = std::max((float)1, std::min((float)254, (float)roundf(fabsf(msg->steering_wheel_angle_velocity) * 180 / M_PI / 4)));
-          } else {
-            ptr->SVEL = std::max((float)1, std::min((float)254, (float)roundf(fabsf(msg->steering_wheel_angle_velocity) * 180 / M_PI / 2)));
-          }
+  switch (msg->cmd_type) {
+    case dbw_mkz_msgs::SteeringCmd::CMD_ANGLE:
+      ptr->SCMD = std::clamp<float>(msg->steering_wheel_angle_cmd * (float)(180 / M_PI * 10), -INT16_MAX, INT16_MAX);
+      if (fabsf(msg->steering_wheel_angle_velocity) > 0) {
+        if (firmware_.findModule(M_EPS).valid() || (firmware_.findPlatform(M_STEER) >= FIRMWARE_HIGH_RATE_LIMIT)) {
+          ptr->SVEL = std::clamp<float>(roundf(fabsf(msg->steering_wheel_angle_velocity) * (float)(180 / M_PI / 4)), 1, 254);
+        } else {
+          ptr->SVEL = std::clamp<float>(roundf(fabsf(msg->steering_wheel_angle_velocity) * (float)(180 / M_PI / 2)), 1, 254);
         }
-        ptr->CMD_TYPE = dbw_mkz_msgs::SteeringCmd::CMD_ANGLE;
-        break;
-      case dbw_mkz_msgs::SteeringCmd::CMD_TORQUE:
-        ptr->SCMD = std::max((float)-INT16_MAX, std::min((float)INT16_MAX, (float)(msg->steering_wheel_torque_cmd * 128)));
-        ptr->CMD_TYPE = dbw_mkz_msgs::SteeringCmd::CMD_TORQUE;
-        if (!firmware_.findModule(M_EPS).valid() && firmware_.findModule(M_STEER).valid()) {
-          ROS_WARN_THROTTLE(1.0, "Module STEER does not support steering command type TORQUE");
-        }
-        break;
-      default:
-        ROS_WARN("Unknown steering command type: %u", msg->cmd_type);
-        break;
-    }
-    if (msg->enable) {
-      ptr->EN = 1;
-    }
+      }
+      ptr->CMD_TYPE = dbw_mkz_msgs::SteeringCmd::CMD_ANGLE;
+      break;
+    case dbw_mkz_msgs::SteeringCmd::CMD_TORQUE:
+      ptr->SCMD = std::clamp<float>(msg->steering_wheel_torque_cmd * 128, -INT16_MAX, INT16_MAX);
+      ptr->CMD_TYPE = dbw_mkz_msgs::SteeringCmd::CMD_TORQUE;
+      if (!firmware_.findModule(M_EPS).valid() && firmware_.findModule(M_STEER).valid()) {
+        ROS_WARN_THROTTLE(1.0, "Module STEER does not support steering command type TORQUE");
+      }
+      break;
+    default:
+      ROS_WARN("Unknown steering command type: %u", msg->cmd_type);
+      break;
+  }
+  if (enabled() && msg->enable) {
+    ptr->EN = 1;
   }
   if (clear() || msg->clear) {
     ptr->CLEAR = 1;

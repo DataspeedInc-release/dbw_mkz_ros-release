@@ -15,10 +15,8 @@ float32 torque_output
 float32 decel_cmd
 float32 decel_output
 
-# Brake On Off (BOO), brake lights
-bool boo_input
+# Brake On Off (BOO)
 bool boo_cmd
-bool boo_output
 
 # Status
 bool enabled  # Enabled
