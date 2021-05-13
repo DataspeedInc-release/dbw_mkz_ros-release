@@ -37,7 +37,7 @@
       </inertial>
 
     </link>
-    <joint name="wheel_${name}" type="continuous" >
+    <joint name="wheel_${name}_joint" type="continuous" >
       <parent link="base_link" />
       <child link="wheel_${name}" />
       <origin xyz="${x} ${y} ${z}" rpy="-1.57079632679 0 0" />
@@ -76,7 +76,7 @@
       </inertial>
     </link>
 
-    <joint name="steer_${name}" type="revolute" >
+    <joint name="steer_${name}_joint" type="revolute" >
       <parent link="base_link" />
       <child link="steer_${name}" />
       <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
@@ -84,7 +84,7 @@
       <limit upper="0.6" lower="-0.6" effort="0.0" velocity="0.0" />
     </joint>
 
-    <joint name="wheel_${name}" type="continuous" >
+    <joint name="wheel_${name}_joint" type="continuous" >
       <parent link="steer_${name}" />
       <child link="wheel_${name}" />
       <origin xyz="0 0 0" rpy="-1.57079632679 0 0" />
@@ -124,13 +124,13 @@
     </visual>
   </link>
 
-  <joint name="base_link" type="fixed" >
+  <joint name="base_link_joint" type="fixed" >
     <parent link="base_footprint" />
     <child link="base_link" />
     <origin xyz="${half_wheelbase} 0 ${wheel_radius}" rpy="0 0 0" />
   </joint>
 
-  <joint name="hood_logo" type="fixed" >
+  <joint name="hood_logo_joint" type="fixed" >
     <parent link="base_link" />
     <child link="hood_logo" />
     <origin xyz="0 0 0" rpy="0 0 0" />
