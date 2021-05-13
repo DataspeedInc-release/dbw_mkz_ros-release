@@ -3,8 +3,15 @@
 
   <!-- DBW system -->
   <arg name="sys" default="false"/>
+  <arg name="dataspeed_can" default="true" />
+  <arg name="socketcan" default="false" />
+  <arg name="socketcan_dev" default="can0" />
   <group if="$(arg sys)">
-    <include file="$(find dbw_mkz_can)/launch/dbw.launch" />
+    <include file="$(find dbw_mkz_can)/launch/dbw.launch" >
+      <arg name="dataspeed_can" value="$(arg dataspeed_can)" />
+      <arg name="socketcan" value="$(arg socketcan)" />
+      <arg name="socketcan_dev" value="$(arg socketcan_dev)" />
+    </include>
   </group>
 
   <!-- Rviz -->
