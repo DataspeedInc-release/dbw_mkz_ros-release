@@ -184,6 +184,9 @@ private:
   double acker_track_;
   double steering_ratio_;
 
+  // Joint states (enable/disable)
+  bool enable_joint_states_;
+
   // Subscribed topics
   ros::Subscriber sub_enable_;
   ros::Subscriber sub_disable_;
