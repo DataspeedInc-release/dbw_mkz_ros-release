@@ -2,6 +2,49 @@
 Changelog for package dbw_mkz_can
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.4.0 (2021-05-12)
+------------------
+* Bump firmware versions
+* C++17 and std::clamp()
+* Remove ROS Kinetic support
+* Populate brake/throttle/steering command values even if enable is false
+* Fix socketcan error frame lock up
+* Contributors: Kevin Hallenbeck, Robert Maupin
+
+1.3.2 (2021-03-09)
+------------------
+* Bump firmware versions
+* License multiple features individually
+* Add option to use socketcan hardware
+* Add Ford Edge platform
+* Contributors: Kevin Hallenbeck
+
+1.3.1 (2021-01-14)
+------------------
+* Bump firmware versions
+* Contributors: Kevin Hallenbeck
+
+1.3.0 (2020-11-18)
+------------------
+* Add brake pedal actuator brake type
+* Add Ford Ranger platform
+* Add reserved bit to prevent warnings
+* Add battery current measurement
+* Contributors: Kevin Hallenbeck, Sun Hwang
+
+1.2.11 (2020-08-17)
+-------------------
+* Bump firmware versions
+* Contributors: Kevin Hallenbeck
+
+1.2.10 (2020-08-05)
+-------------------
+* Only publish joint states from DbwNode if set to load URDF model
+  The joint states messages from DbwNode collide with the joint states published by the Gazebo simulator otherwise.
+* Change names of joints to be different from links
+  Gazebo 11 doesn't let joint names and link names be the same, which was allowed in earlier versions
+* Contributors: Kevin Hallenbeck, Micho Radovnikovich
+
 1.2.9 (2020-07-09)
 ------------------
 * Add gear reject enumerations
