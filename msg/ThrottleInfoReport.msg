@@ -10,3 +10,6 @@ float32 engine_rpm    # Engine Speed (rpm)
 
 # Gear Num
 GearNum gear_num      # Gear Number
+
+# Battery Current
+float32 batt_curr     # Battery Current (Amps)
