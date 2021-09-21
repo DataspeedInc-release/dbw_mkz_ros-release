@@ -50,7 +50,8 @@ typedef struct {
   uint8_t EN :1;
   uint8_t CLEAR :1;
   uint8_t IGNORE :1;
-  uint8_t :4;
+  uint8_t :3;
+  uint8_t RES2 :1;
   uint8_t RES1 :1;
   uint8_t :8;
   uint8_t :8;
@@ -83,7 +84,8 @@ typedef struct {
   uint8_t EN :1;
   uint8_t CLEAR :1;
   uint8_t IGNORE :1;
-  uint8_t :4;
+  uint8_t :3;
+  uint8_t RES2 :1;
   uint8_t RES1 :1;
   uint8_t :8;
   uint8_t :8;
@@ -115,10 +117,11 @@ typedef struct {
   uint8_t :1;
   uint8_t QUIET :1;
   uint8_t RES1 :1;
-  uint8_t :1;
+  uint8_t ALERT :1;
   uint8_t CMD_TYPE :1;
   uint8_t SVEL;
-  uint8_t :8;
+  uint8_t RES2 :1;
+  uint8_t :7;
   uint8_t :8;
   uint8_t :8;
   uint8_t COUNT;
@@ -142,7 +145,8 @@ typedef struct {
 
 typedef struct {
   uint8_t GCMD :3;
-  uint8_t :3;
+  uint8_t :2;
+  uint8_t RES2 :1;
   uint8_t RES1 :1;
   uint8_t CLEAR :1;
 } MsgGearCmd;
@@ -345,7 +349,7 @@ typedef struct {
   int8_t throttle_rate :8;
   uint8_t gear_num :5;
   uint8_t :3;
-  uint8_t :2;
+  uint8_t ign_stat :2;
   int16_t batt_curr :14;
 } MsgReportThrottleInfo;
 
