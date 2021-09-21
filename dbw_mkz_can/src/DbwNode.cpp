@@ -61,31 +61,31 @@ namespace dbw_mkz_can
 
 // Latest firmware versions
 PlatformMap FIRMWARE_LATEST({
-  {PlatformVersion(P_FORD_CD4, M_BPEC,  ModuleVersion(2,4,2))},
-  {PlatformVersion(P_FORD_CD4, M_TPEC,  ModuleVersion(2,4,2))},
-  {PlatformVersion(P_FORD_CD4, M_STEER, ModuleVersion(2,4,2))},
-  {PlatformVersion(P_FORD_CD4, M_SHIFT, ModuleVersion(2,4,2))},
-  {PlatformVersion(P_FORD_CD5, M_BOO,   ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_CD5, M_TPEC,  ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_CD5, M_STEER, ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_P5,  M_TPEC,  ModuleVersion(1,3,2))},
-  {PlatformVersion(P_FORD_P5,  M_STEER, ModuleVersion(1,3,2))},
-  {PlatformVersion(P_FORD_P5,  M_SHIFT, ModuleVersion(1,3,2))},
-  {PlatformVersion(P_FORD_P5,  M_ABS,   ModuleVersion(1,3,2))},
-  {PlatformVersion(P_FORD_P5,  M_BOO,   ModuleVersion(1,3,2))},
-  {PlatformVersion(P_FORD_T6,  M_TPEC,  ModuleVersion(0,1,2))},
-  {PlatformVersion(P_FORD_T6,  M_STEER, ModuleVersion(0,1,2))},
-  {PlatformVersion(P_FORD_U6,  M_TPEC,  ModuleVersion(0,1,2))},
-  {PlatformVersion(P_FORD_U6,  M_STEER, ModuleVersion(0,1,2))},
-  {PlatformVersion(P_FORD_U6,  M_SHIFT, ModuleVersion(0,1,2))},
-  {PlatformVersion(P_FORD_U6,  M_ABS,   ModuleVersion(0,1,2))},
-  {PlatformVersion(P_FORD_U6,  M_BOO,   ModuleVersion(0,1,2))},
-  {PlatformVersion(P_FORD_C1,  M_TPEC,  ModuleVersion(1,1,2))},
-  {PlatformVersion(P_FORD_C1,  M_STEER, ModuleVersion(1,1,2))},
-  {PlatformVersion(P_FORD_C1,  M_SHIFT, ModuleVersion(1,1,2))},
-  {PlatformVersion(P_FORD_C1,  M_ABS,   ModuleVersion(1,1,2))},
-  {PlatformVersion(P_FORD_C1,  M_BOO,   ModuleVersion(1,1,2))},
-  {PlatformVersion(P_FORD_C1,  M_EPS,   ModuleVersion(1,1,2))},
+  {PlatformVersion(P_FORD_CD4, M_BPEC,  ModuleVersion(2,5,0))},
+  {PlatformVersion(P_FORD_CD4, M_TPEC,  ModuleVersion(2,5,0))},
+  {PlatformVersion(P_FORD_CD4, M_STEER, ModuleVersion(2,5,0))},
+  {PlatformVersion(P_FORD_CD4, M_SHIFT, ModuleVersion(2,5,0))},
+  {PlatformVersion(P_FORD_CD5, M_BOO,   ModuleVersion(1,1,0))},
+  {PlatformVersion(P_FORD_CD5, M_TPEC,  ModuleVersion(1,1,0))},
+  {PlatformVersion(P_FORD_CD5, M_STEER, ModuleVersion(1,1,0))},
+  {PlatformVersion(P_FORD_P5,  M_TPEC,  ModuleVersion(1,4,0))},
+  {PlatformVersion(P_FORD_P5,  M_STEER, ModuleVersion(1,4,0))},
+  {PlatformVersion(P_FORD_P5,  M_SHIFT, ModuleVersion(1,4,0))},
+  {PlatformVersion(P_FORD_P5,  M_ABS,   ModuleVersion(1,4,0))},
+  {PlatformVersion(P_FORD_P5,  M_BOO,   ModuleVersion(1,4,0))},
+  {PlatformVersion(P_FORD_T6,  M_TPEC,  ModuleVersion(0,2,0))},
+  {PlatformVersion(P_FORD_T6,  M_STEER, ModuleVersion(0,2,0))},
+  {PlatformVersion(P_FORD_U6,  M_TPEC,  ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_U6,  M_STEER, ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_U6,  M_SHIFT, ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_U6,  M_ABS,   ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_U6,  M_BOO,   ModuleVersion(1,0,0))},
+  {PlatformVersion(P_FORD_C1,  M_TPEC,  ModuleVersion(1,2,0))},
+  {PlatformVersion(P_FORD_C1,  M_STEER, ModuleVersion(1,2,0))},
+  {PlatformVersion(P_FORD_C1,  M_SHIFT, ModuleVersion(1,2,0))},
+  {PlatformVersion(P_FORD_C1,  M_ABS,   ModuleVersion(1,2,0))},
+  {PlatformVersion(P_FORD_C1,  M_BOO,   ModuleVersion(1,2,0))},
+  {PlatformVersion(P_FORD_C1,  M_EPS,   ModuleVersion(1,2,0))},
 });
 
 // Minimum firmware versions required for the timeout bit
@@ -696,6 +696,7 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
             out.engine_rpm = (float)ptr->engine_rpm * 0.25f;
           }
           out.gear_num.num = ptr->gear_num;
+          out.ignition.value = ptr->ign_stat;
           if ((uint16_t)ptr->batt_curr == 0xE000) {
             out.batt_curr = NAN;
           } else {
@@ -822,16 +823,20 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
               ROS_INFO("Licensing: VIN: %s", vin_.c_str());
             }
           } else if ((LIC_MUX_F0 <= ptr->mux) && (ptr->mux <= LIC_MUX_F7)) {
-            constexpr std::array<const char*, 8> NAME = {"BASE","CONTROL","SENSORS","","","","",""};
+            constexpr std::array<const char*, 8> NAME = {"BASE","CONTROL","SENSORS","REMOTE","","","",""};
+            constexpr std::array<bool, 8> WARN = {true, true, true, false, true, true, true, true};
             const size_t i = ptr->mux - LIC_MUX_F0;
             const int id = module * NAME.size() + i;
+            const std::string name = strcmp(NAME[i], "") ? NAME[i] : std::string(1, '0' + i);
             if (ptr->license.enabled) {
-              ROS_INFO_ONCE_ID(id, "Licensing: %s feature '%s' enabled%s", str_m, NAME[i], ptr->license.trial ? " as a counted trial" : "");
+              ROS_INFO_ONCE_ID(id, "Licensing: %s feature '%s' enabled%s", str_m, name.c_str(), ptr->license.trial ? " as a counted trial" : "");
+            } else if (ptr->ready && !WARN[i]) {
+              ROS_INFO_ONCE_ID(id, "Licensing: %s feature '%s' not licensed.", str_m, name.c_str());
             } else if (ptr->ready) {
-              ROS_WARN_ONCE_ID(id, "Licensing: %s feature '%s' not licensed. Visit https://www.dataspeedinc.com/products/maintenance-subscription/ to request a license.", str_m, NAME[i]);
+              ROS_WARN_ONCE_ID(id, "Licensing: %s feature '%s' not licensed. Visit https://www.dataspeedinc.com/products/maintenance-subscription/ to request a license.", str_m, name.c_str());
             }
-            if (ptr->ready && (module == M_STEER) && (ptr->license.trial || !ptr->license.enabled)) {
-              ROS_INFO_ONCE("Licensing: Feature '%s' trials used: %u, remaining: %u", NAME[i],
+            if (ptr->ready && (module == M_STEER) && (ptr->license.trial || (!ptr->license.enabled && WARN[i]))) {
+              ROS_INFO_ONCE("Licensing: Feature '%s' trials used: %u, remaining: %u", name.c_str(),
                             ptr->license.trials_used, ptr->license.trials_left);
             }
           }
@@ -863,19 +868,19 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
         break;
 
       case ID_BRAKE_CMD:
-        ROS_WARN_COND(warn_cmds_ && !((const MsgBrakeCmd*)msg->data.elems)->RES1,
+        ROS_WARN_COND(warn_cmds_ && !((const MsgBrakeCmd*)msg->data.elems)->RES1 && !((const MsgBrakeCmd*)msg->data.elems)->RES2,
                                   "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Brake. Id: 0x%03X", ID_BRAKE_CMD);
         break;
       case ID_THROTTLE_CMD:
-        ROS_WARN_COND(warn_cmds_ && !((const MsgThrottleCmd*)msg->data.elems)->RES1,
+        ROS_WARN_COND(warn_cmds_ && !((const MsgThrottleCmd*)msg->data.elems)->RES1 && !((const MsgThrottleCmd*)msg->data.elems)->RES2,
                                   "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Throttle. Id: 0x%03X", ID_THROTTLE_CMD);
         break;
       case ID_STEERING_CMD:
-        ROS_WARN_COND(warn_cmds_ && !((const MsgSteeringCmd*)msg->data.elems)->RES1,
+        ROS_WARN_COND(warn_cmds_ && !((const MsgSteeringCmd*)msg->data.elems)->RES1 && !((const MsgSteeringCmd*)msg->data.elems)->RES2,
                                   "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Steering. Id: 0x%03X", ID_STEERING_CMD);
         break;
       case ID_GEAR_CMD:
-        ROS_WARN_COND(warn_cmds_ && !((const MsgGearCmd*)msg->data.elems)->RES1,
+        ROS_WARN_COND(warn_cmds_ && !((const MsgGearCmd*)msg->data.elems)->RES1 && !((const MsgGearCmd*)msg->data.elems)->RES2,
                                   "DBW system: Another node on the CAN bus is commanding the vehicle!!! Subsystem: Shifting. Id: 0x%03X", ID_GEAR_CMD);
         break;
       case ID_MISC_CMD:
@@ -1203,6 +1208,9 @@ void DbwNode::recvSteeringCmd(const dbw_mkz_msgs::SteeringCmd::ConstPtr& msg)
   }
   if (msg->quiet) {
     ptr->QUIET = 1;
+  }
+  if (msg->alert) {
+    ptr->ALERT = 1;
   }
   ptr->COUNT = msg->count;
   pub_can_.publish(out);
