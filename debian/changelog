@@ -1,0 +1,263 @@
+ros-melodic-dbw-mkz-msgs (1.4.1-1bionic) bionic; urgency=high
+
+  * Add ignition status to ThrottleInfoReport
+  * Add user control of alert
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 20 Sep 2021 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.4.0-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 12 May 2021 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.3.2-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 09 Mar 2021 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.3.1-1bionic) bionic; urgency=high
+
+  * Add hazard light enumeration to turn signal status
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 14 Jan 2021 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.3.0-1bionic) bionic; urgency=high
+
+  * Add brake pedal actuator brake type
+  * Add battery current measurement
+  * Contributors: Kevin Hallenbeck, Sun Hwang
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 18 Nov 2020 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.11-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 17 Aug 2020 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.10-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 05 Aug 2020 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.9-1bionic) bionic; urgency=high
+
+  * Add gear reject enumerations
+  * Increase CMake minimum version to 3.0.2 to avoid warning about CMP0048
+    http://wiki.ros.org/noetic/Migration#Increase_required_CMake_version_to_avoid_author_warning
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 09 Jul 2020 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.8-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 20 Feb 2020 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.7-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 14 Feb 2020 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.6-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 11 Nov 2019 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.5-1bionic) bionic; urgency=high
+
+  * Add steering wheel buttons in Misc1Report
+  * Contributors: Kevin Hallenbeck, Sun Hwang
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 30 Oct 2019 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.4-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 13 Sep 2019 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.3-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 13 Aug 2019 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.2-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 24 Jul 2019 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.1-1bionic) bionic; urgency=high
+
+  * Added support for non-hybrid brake report values
+  * Added gear number to throttle info message
+  * Added throttle and brake limp-home statuses
+  * Contributors: Kevin Hallenbeck, Sun Hwang
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 11 Jul 2019 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.2.0-1bionic) bionic; urgency=high
+
+  * Added angle/torque steering command modes (not supported on all platforms)
+  * Added odometer and battery voltage to fuel level report
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 03 May 2019 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.1.2-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 14 Mar 2019 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.1.1-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 01 Mar 2019 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.1.0-1bionic) bionic; urgency=high
+
+  * Removed boo_cmd from BrakeCommand message
+  * Fixed old bag migration rule
+  * Added CMD_DECEL brake command type (only for non-hybrid platforms)
+  * Added DriverAssistReport message
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Fri, 30 Nov 2018 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.17-1bionic) bionic; urgency=high
+
+  * Added outside air temperature to Misc1Report
+  * Fixed copy-paste mistake in old bag migration rule
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Sat, 27 Oct 2018 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.16-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 29 Aug 2018 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.15-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 21 Aug 2018 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.14-1bionic) bionic; urgency=high
+
+  * Added brake pedal CMD_TORQUE_RQ command type for closed loop brake torque request
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 20 Aug 2018 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.13-1bionic) bionic; urgency=high
+
+  * Added support for the RES+ and RES- buttons
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 06 Jun 2018 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.12-1bionic) bionic; urgency=high
+
+  * Added power fault bit to report when modules lose power
+  * Added bag migration rules for converting bag files with old message types
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 30 Jan 2018 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.11-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 19 Oct 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.10-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 03 Oct 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.9-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 19 Sep 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.8-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 07 Sep 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.7-1bionic) bionic; urgency=high
+
+  * Removed steering report driver activity bit
+  * Replaced connector fault with timeout, and warn on timeout
+  * Added gear rejection enumeration to gear report
+  * Added wheel positions report (replaces suspension report)
+  * Added steering wheel left D-Pad buttons
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 21 Aug 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.6-1bionic) bionic; urgency=high
+
+  * Removed SuspensionReport (data was unintelligible)
+  * Added clear bit to command messages
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 21 Jun 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.5-1bionic) bionic; urgency=high
+
+  * Updated package.xml format to version 2
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 25 Apr 2017 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.4-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Tue, 06 Dec 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.3-1bionic) bionic; urgency=high
+
+  * Added QUIET bit to disable driver override audible warning
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Thu, 17 Nov 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.2-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 07 Nov 2016 05:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.1-1bionic) bionic; urgency=high
+
+
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Mon, 10 Oct 2016 04:00:00 -0000
+
+ros-melodic-dbw-mkz-msgs (1.0.0-1bionic) bionic; urgency=high
+
+  * Initial release
+  * Contributors: Kevin Hallenbeck
+
+ -- Kevin Hallenbeck <khallenbeck@dataspeedinc.com>  Wed, 28 Sep 2016 04:00:00 -0000
+
+
