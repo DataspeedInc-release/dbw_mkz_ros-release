@@ -20,6 +20,7 @@ add_message_files(DIRECTORY msg FILES
   GearReject.msg
   GearReport.msg
   HillStartAssist.msg
+  Ignition.msg
   Misc1Report.msg
   ParkingBrake.msg
   QualityFactor.msg
