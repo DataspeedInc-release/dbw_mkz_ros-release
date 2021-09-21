@@ -2,6 +2,15 @@
 Changelog for package dbw_mkz_can
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.4.1 (2021-09-20)
+------------------
+* Bump firmware versions
+* Add reserved bits
+* Improve printing of license info
+* Add ignition status to ThrottleInfoReport
+* Add user control of alert
+* Contributors: Kevin Hallenbeck
+
 1.4.0 (2021-05-12)
 ------------------
 * Bump firmware versions
