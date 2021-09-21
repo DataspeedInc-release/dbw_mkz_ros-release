@@ -1,3 +1,4 @@
+[dbw_mkz_msgs/SteeringCmd]:
 # Steering Wheel
 float32 steering_wheel_angle_cmd        # rad, range -9.6 to 9.6
 float32 steering_wheel_angle_velocity   # rad/s, range 0 to 17.5, 0 = default
@@ -13,9 +14,8 @@ bool clear
 # Ignore driver overrides
 bool ignore
 
-# Disable or activate the driver override audible warning
+# Disable the driver override audible warning
 bool quiet
-bool alert
 
 # Watchdog counter (optional)
 uint8 count
@@ -28,3 +28,4 @@ uint8 CMD_TORQUE=1
 float32 ANGLE_MAX=9.6     # rad, maximum angle
 float32 VELOCITY_MAX=17.5 # rad/s, maximum velocity
 float32 TORQUE_MAX=8.0    # Nm, maximum torque
+
