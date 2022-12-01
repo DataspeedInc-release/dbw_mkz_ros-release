@@ -131,7 +131,7 @@ typedef struct {
   int16_t ANGLE;
   int16_t CMD :15;
   uint8_t TMODE :1; // Torque mode
-  uint16_t SPEED;
+  int16_t VEH_VEL;
   int8_t TORQUE;
   uint8_t ENABLED :1;
   uint8_t OVERRIDE :1;
@@ -162,8 +162,10 @@ typedef struct {
 
 typedef struct {
   uint8_t TRNCMD :2;
-  uint8_t :6;
-} MsgTurnSignalCmd;
+  uint8_t PBRKCMD :2;
+  uint8_t :4;
+} MsgMiscCmd;
+typedef MsgMiscCmd MsgTurnSignalCmd; // Backwards compatiblity
 
 typedef struct {
   uint8_t turn_signal :2;
@@ -487,7 +489,7 @@ static void dispatchAssertSizes() {
   BUILD_ASSERT(8 == sizeof(MsgSteeringReport));
   BUILD_ASSERT(1 == sizeof(MsgGearCmd));
   BUILD_ASSERT(2 == sizeof(MsgGearReport));
-  BUILD_ASSERT(1 == sizeof(MsgTurnSignalCmd));
+  BUILD_ASSERT(1 == sizeof(MsgMiscCmd));
   BUILD_ASSERT(8 == sizeof(MsgMiscReport));
   BUILD_ASSERT(8 == sizeof(MsgReportWheelSpeed));
   BUILD_ASSERT(6 == sizeof(MsgReportAccel));
