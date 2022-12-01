@@ -22,7 +22,9 @@ add_message_files(DIRECTORY msg FILES
   HillStartAssist.msg
   Ignition.msg
   Misc1Report.msg
+  MiscCmd.msg
   ParkingBrake.msg
+  ParkingBrakeCmd.msg
   QualityFactor.msg
   SteeringCmd.msg
   SteeringReport.msg
@@ -32,7 +34,6 @@ add_message_files(DIRECTORY msg FILES
   ThrottleReport.msg
   TirePressureReport.msg
   TurnSignal.msg
-  TurnSignalCmd.msg
   TwistCmd.msg
   WatchdogCounter.msg
   WheelPositionReport.msg
@@ -49,8 +50,12 @@ catkin_package(CATKIN_DEPENDS
   message_runtime
   std_msgs
   geometry_msgs
+  INCLUDE_DIRS include
 )
 
+install(DIRECTORY include/${PROJECT_NAME}/
+        DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+)
 install(DIRECTORY bmr
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
         FILES_MATCHING PATTERN "*.bmr"
