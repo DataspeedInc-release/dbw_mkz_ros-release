@@ -2,6 +2,30 @@
 Changelog for package dbw_mkz_can
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.6.0 (2022-11-30)
+------------------
+* Bump firmware versions
+* Change unsigned vehicle speed to signed vehicle velocity
+* Contributors: Kevin Hallenbeck
+
+1.5.2 (2022-05-13)
+------------------
+* Periodically publish DBW enabled status in addition to latched and on change
+* Bump firmware versions
+* Contributors: Kevin Hallenbeck
+
+1.5.1 (2022-03-08)
+------------------
+* Bump firmware versions
+* Contributors: Kevin Hallenbeck
+
+1.5.0 (2022-02-23)
+------------------
+* Add Ford Mustang Mach-E
+* Add electric parking brake control
+* Rename TurnSignalCmd to MiscCmd
+* Contributors: Kevin Hallenbeck
+
 1.4.1 (2021-09-20)
 ------------------
 * Bump firmware versions
