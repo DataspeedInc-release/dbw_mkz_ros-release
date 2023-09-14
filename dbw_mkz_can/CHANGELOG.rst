@@ -2,6 +2,30 @@
 Changelog for package dbw_mkz_can
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.6.4 (2023-09-11)
+------------------
+* Bump firmware versions
+* Add one-pedal-drive mode status
+* Add ready flag to GearReport message
+* Contributors: Kevin Hallenbeck
+
+1.6.3 (2023-05-10)
+------------------
+* Bump firmware versions
+* Contributors: Kevin Hallenbeck
+
+1.6.2 (2023-01-24)
+------------------
+* Bump firmware versions
+* Contributors: Kevin Hallenbeck
+
+1.6.1 (2023-01-06)
+------------------
+* Specify Python3 for scripts (no more ROS Melodic with Python2)
+* Add P702 platform (2021+ F-150)
+* Add warning for steering configuration fault
+* Contributors: Kevin Hallenbeck
+
 1.6.0 (2022-11-30)
 ------------------
 * Bump firmware versions

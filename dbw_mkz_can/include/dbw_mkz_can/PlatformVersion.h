@@ -44,12 +44,13 @@ namespace dbw_mkz_can
 // Vehicle platform enumeration
 typedef enum {
   P_FORD_CD4    = 0x00, // Lincoln MKZ, Ford Fusion/Mondeo
-  P_FORD_P5     = 0x01, // Ford F150
+  P_FORD_P5     = 0x01, // Ford F150 (2015-2020)
   P_FORD_C1     = 0x02, // Ford Transit Connect
   P_FORD_T6     = 0x03, // Ford Ranger
   P_FORD_U6     = 0x04, // Lincoln Aviator
   P_FORD_CD5    = 0x05, // Ford Edge, Lincoln Nautilus
   P_FORD_GE1    = 0x06, // Ford Mustang Mach-E
+  P_FORD_P702   = 0x07, // Ford F150 (2021+)
   P_FCA_RU      = 0x10, // Chrysler Pacifica
   P_FCA_WK2     = 0x11, // Jeep Grand Cherokee
   P_POLARIS_GEM = 0x80, // Polaris GEM
@@ -76,6 +77,7 @@ static const char* platformToString(Platform x) {
     case P_FORD_U6:     return "FORD_U6";
     case P_FORD_CD5:    return "FORD_CD5";
     case P_FORD_GE1:    return "FORD_GE1";
+    case P_FORD_P702:   return "FORD_P702";
     case P_FCA_RU:      return "FCA_RU";
     case P_FCA_WK2:     return "FCA_WK2";
     case P_POLARIS_GEM: return "POLARIS_GEM";

@@ -61,35 +61,38 @@ namespace dbw_mkz_can
 
 // Latest firmware versions
 PlatformMap FIRMWARE_LATEST({
-  {PlatformVersion(P_FORD_C1,  M_TPEC,  ModuleVersion(1,3,0))},
-  {PlatformVersion(P_FORD_C1,  M_STEER, ModuleVersion(1,3,0))},
-  {PlatformVersion(P_FORD_C1,  M_SHIFT, ModuleVersion(1,3,0))},
-  {PlatformVersion(P_FORD_C1,  M_ABS,   ModuleVersion(1,3,0))},
-  {PlatformVersion(P_FORD_C1,  M_BOO,   ModuleVersion(1,3,0))},
-  {PlatformVersion(P_FORD_C1,  M_EPS,   ModuleVersion(1,3,0))},
-  {PlatformVersion(P_FORD_CD4, M_BPEC,  ModuleVersion(2,6,0))},
-  {PlatformVersion(P_FORD_CD4, M_TPEC,  ModuleVersion(2,6,0))},
-  {PlatformVersion(P_FORD_CD4, M_STEER, ModuleVersion(2,6,0))},
-  {PlatformVersion(P_FORD_CD4, M_SHIFT, ModuleVersion(2,6,0))},
-  {PlatformVersion(P_FORD_CD5, M_BOO,   ModuleVersion(1,2,0))},
-  {PlatformVersion(P_FORD_CD5, M_TPEC,  ModuleVersion(1,2,0))},
-  {PlatformVersion(P_FORD_CD5, M_STEER, ModuleVersion(1,2,0))},
-  {PlatformVersion(P_FORD_GE1, M_TPEC,  ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_GE1, M_STEER, ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_GE1, M_SHIFT, ModuleVersion(1,0,0))},
-  {PlatformVersion(P_FORD_P5,  M_TPEC,  ModuleVersion(1,5,0))},
-  {PlatformVersion(P_FORD_P5,  M_STEER, ModuleVersion(1,5,0))},
-  {PlatformVersion(P_FORD_P5,  M_SHIFT, ModuleVersion(1,5,0))},
-  {PlatformVersion(P_FORD_P5,  M_ABS,   ModuleVersion(1,5,0))},
-  {PlatformVersion(P_FORD_P5,  M_BOO,   ModuleVersion(1,5,0))},
-  {PlatformVersion(P_FORD_T6,  M_TPEC,  ModuleVersion(0,3,0))},
-  {PlatformVersion(P_FORD_T6,  M_STEER, ModuleVersion(0,3,0))},
-  {PlatformVersion(P_FORD_T6,  M_SHIFT, ModuleVersion(0,3,0))},
-  {PlatformVersion(P_FORD_U6,  M_TPEC,  ModuleVersion(1,1,0))},
-  {PlatformVersion(P_FORD_U6,  M_STEER, ModuleVersion(1,1,0))},
-  {PlatformVersion(P_FORD_U6,  M_SHIFT, ModuleVersion(1,1,0))},
-  {PlatformVersion(P_FORD_U6,  M_ABS,   ModuleVersion(1,1,0))},
-  {PlatformVersion(P_FORD_U6,  M_BOO,   ModuleVersion(1,1,0))},
+  {PlatformVersion(P_FORD_C1,   M_TPEC,  ModuleVersion(1,3,4))},
+  {PlatformVersion(P_FORD_C1,   M_STEER, ModuleVersion(1,3,4))},
+  {PlatformVersion(P_FORD_C1,   M_SHIFT, ModuleVersion(1,3,4))},
+  {PlatformVersion(P_FORD_C1,   M_ABS,   ModuleVersion(1,3,4))},
+  {PlatformVersion(P_FORD_C1,   M_BOO,   ModuleVersion(1,3,4))},
+  {PlatformVersion(P_FORD_C1,   M_EPS,   ModuleVersion(1,3,4))},
+  {PlatformVersion(P_FORD_CD4,  M_BPEC,  ModuleVersion(2,6,4))},
+  {PlatformVersion(P_FORD_CD4,  M_TPEC,  ModuleVersion(2,6,4))},
+  {PlatformVersion(P_FORD_CD4,  M_STEER, ModuleVersion(2,6,4))},
+  {PlatformVersion(P_FORD_CD4,  M_SHIFT, ModuleVersion(2,6,4))},
+  {PlatformVersion(P_FORD_CD5,  M_BOO,   ModuleVersion(1,2,4))},
+  {PlatformVersion(P_FORD_CD5,  M_TPEC,  ModuleVersion(1,2,4))},
+  {PlatformVersion(P_FORD_CD5,  M_STEER, ModuleVersion(1,2,4))},
+  {PlatformVersion(P_FORD_GE1,  M_TPEC,  ModuleVersion(1,0,4))},
+  {PlatformVersion(P_FORD_GE1,  M_STEER, ModuleVersion(1,0,4))},
+  {PlatformVersion(P_FORD_GE1,  M_SHIFT, ModuleVersion(1,0,4))},
+  {PlatformVersion(P_FORD_P5,   M_TPEC,  ModuleVersion(1,5,4))},
+  {PlatformVersion(P_FORD_P5,   M_STEER, ModuleVersion(1,5,4))},
+  {PlatformVersion(P_FORD_P5,   M_SHIFT, ModuleVersion(1,5,4))},
+  {PlatformVersion(P_FORD_P5,   M_ABS,   ModuleVersion(1,5,4))},
+  {PlatformVersion(P_FORD_P5,   M_BOO,   ModuleVersion(1,5,4))},
+  {PlatformVersion(P_FORD_P702, M_TPEC,  ModuleVersion(0,1,4))},
+  {PlatformVersion(P_FORD_P702, M_STEER, ModuleVersion(0,1,4))},
+  {PlatformVersion(P_FORD_P702, M_SHIFT, ModuleVersion(0,1,4))},
+  {PlatformVersion(P_FORD_T6,   M_TPEC,  ModuleVersion(0,3,4))},
+  {PlatformVersion(P_FORD_T6,   M_STEER, ModuleVersion(0,3,4))},
+  {PlatformVersion(P_FORD_T6,   M_SHIFT, ModuleVersion(0,3,4))},
+  {PlatformVersion(P_FORD_U6,   M_TPEC,  ModuleVersion(1,1,4))},
+  {PlatformVersion(P_FORD_U6,   M_STEER, ModuleVersion(1,1,4))},
+  {PlatformVersion(P_FORD_U6,   M_SHIFT, ModuleVersion(1,1,4))},
+  {PlatformVersion(P_FORD_U6,   M_ABS,   ModuleVersion(1,1,4))},
+  {PlatformVersion(P_FORD_U6,   M_BOO,   ModuleVersion(1,1,4))},
 });
 
 // Minimum firmware versions required for the timeout bit
@@ -334,7 +337,7 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
         if (msg->dlc >= sizeof(MsgSteeringReport)) {
           const MsgSteeringReport *ptr = (const MsgSteeringReport*)msg->data.elems;
           faultSteering(ptr->FLTBUS1 || ptr->FLTBUS2);
-          faultSteeringCal(ptr->FLTCAL);
+          faultSteeringCal(ptr->FLTCAL && (uint16_t)ptr->ANGLE == 0x8000);
           faultWatchdog(ptr->FLTWDC);
           dbw_mkz_msgs::SteeringReport out;
           out.header.stamp = msg->header.stamp;
@@ -388,8 +391,10 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
                 ptr->FLTBUS1 ? "true, " : "false,",
                 ptr->FLTBUS2 ? "true, " : "false,",
                 ptr->FLTPWR  ? "true" : "false");
-          } else if (ptr->FLTCAL) {
+          } else if (ptr->FLTCAL && (uint16_t)ptr->ANGLE == 0x8000) {
             ROS_WARN_THROTTLE(5.0, "Steering calibration fault. Drive at least 25 mph for at least 10 seconds in a straight line.");
+          } else if (ptr->FLTCAL) {
+            ROS_WARN_THROTTLE(5.0, "Steering configuration fault. Contact support@dataspeedinc.com if not resolved in a few minutes.");
           }
         }
         break;
@@ -402,6 +407,7 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
           out.header.stamp = msg->header.stamp;
           out.state.gear = ptr->STATE;
           out.cmd.gear = ptr->CMD;
+          out.ready = ptr->READY ? true : false;
           out.override = ptr->OVERRIDE ? true : false;
           out.fault_bus = ptr->FLTBUS ? true : false;
           if (msg->dlc >= sizeof(MsgGearReport)) {
@@ -695,6 +701,7 @@ void DbwNode::recvCAN(const can_msgs::Frame::ConstPtr& msg)
             out.throttle_rate = (float)ptr->throttle_rate * 4e-4f;
           }
           out.throttle_pedal_qf.value = ptr->aped_qf;
+          out.one_pedal.value = ptr->one_pedal_drive;
           if (ptr->engine_rpm == 0xFFFF) {
             out.engine_rpm = NAN;
           } else {

@@ -4,6 +4,7 @@ Header header
 float32 throttle_pc   # Throttle pedal percent, range 0 to 1
 float32 throttle_rate # Throttle pedal change per second (1/s)
 QualityFactor throttle_pedal_qf # Non-zero is limp-home
+OnePedal one_pedal    # One-pedal-drive mode
 
 # Engine
 float32 engine_rpm    # Engine Speed (rpm)
