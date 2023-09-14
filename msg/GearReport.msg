@@ -10,6 +10,7 @@ Gear cmd
 GearReject reject
 
 # Status
+bool ready
 bool override
 
 # Faults

@@ -23,6 +23,7 @@ add_message_files(DIRECTORY msg FILES
   Ignition.msg
   Misc1Report.msg
   MiscCmd.msg
+  OnePedal.msg
   ParkingBrake.msg
   ParkingBrakeCmd.msg
   QualityFactor.msg
