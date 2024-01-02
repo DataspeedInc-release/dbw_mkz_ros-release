@@ -53,7 +53,7 @@ sudo rosdep init
 
 # Update rosdep rules
 echo "Updating rosdep rules..."
-rosdep update
+rosdep update --rosdistro=$ROS_DISTRO
 
 # Setup environment
 echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc

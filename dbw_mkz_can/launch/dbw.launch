@@ -21,6 +21,10 @@
       <param name="bitrate_3" value="500000" />
       <param name="channel_3_mask_0"  value="0x800007E0" if="$(arg filter_can)" />
       <param name="channel_3_match_0" value="0x00000060" if="$(arg filter_can)" /> <!-- SID 0x060 to 0x07F -->
+      <param name="channel_3_mask_1"  value="0x800007FC" />
+      <param name="channel_3_match_1" value="0x00000100" /> <!-- SID 0x100 to 0x103 -->
+      <param name="channel_3_mask_2"  value="0x800007F8" />
+      <param name="channel_3_match_2" value="0x000006C0" /> <!-- SID 0x6C0 to 0x6C7 -->
       <remap from="can_bus_4" to="can_bus_4"/>
       <param name="bitrate_4" value="0" />
     </node>
