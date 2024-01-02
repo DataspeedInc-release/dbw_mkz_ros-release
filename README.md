@@ -1,3 +1,31 @@
+## dbw_mkz_ros (noetic) - 1.6.5-1
+
+The packages in the `dbw_mkz_ros` repository were released into the `noetic` distro by running `/usr/bin/bloom-release dbw_mkz_ros --rosdistro noetic` on `Tue, 02 Jan 2024 17:51:44 -0000`
+
+These packages were released:
+- `dbw_mkz`
+- `dbw_mkz_can`
+- `dbw_mkz_description`
+- `dbw_mkz_joystick_demo`
+- `dbw_mkz_msgs`
+
+Version of package(s) in repository `dbw_mkz_ros`:
+
+- upstream repository: https://bitbucket.org/dataspeedinc/dbw_mkz_ros.git
+- release repository: https://github.com/DataspeedInc-release/dbw_mkz_ros-release.git
+- rosdistro version: `1.6.4-1`
+- old version: `1.6.4-1`
+- new version: `1.6.5-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## dbw_mkz_ros (noetic) - 1.6.4-1
 
 The packages in the `dbw_mkz_ros` repository were released into the `noetic` distro by running `/usr/bin/bloom-release dbw_mkz_ros --rosdistro noetic` on `Thu, 14 Sep 2023 20:06:26 -0000`
