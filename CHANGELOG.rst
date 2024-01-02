@@ -2,6 +2,11 @@
 Changelog for package dbw_mkz
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.6.5 (2024-01-02)
+------------------
+* Fix install script for end-of-life ROS distros
+* Contributors: Kevin Hallenbeck
+
 1.6.4 (2023-09-11)
 ------------------
 
