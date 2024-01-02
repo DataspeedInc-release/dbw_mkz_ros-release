@@ -2,6 +2,9 @@
 Changelog for package dbw_mkz_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.6.5 (2024-01-02)
+------------------
+
 1.6.4 (2023-09-11)
 ------------------
 * Add one-pedal-drive mode status
