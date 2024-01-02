@@ -30,7 +30,7 @@ if [ -z "$ROS_DISTRO" ]; then
   echo "Error! ROS not detected. Not updating rosdep!"
 else
   sudo sh -c 'echo "yaml http://packages.dataspeedinc.com/ros/ros-public-'$ROS_DISTRO'.yaml '$ROS_DISTRO'" > /etc/ros/rosdep/sources.list.d/30-dataspeed-public-'$ROS_DISTRO'.list'
-  rosdep update
+  rosdep update --rosdistro=$ROS_DISTRO
 fi
 
 sudo apt-get install -y ros-$ROS_DISTRO-dbw-mkz
